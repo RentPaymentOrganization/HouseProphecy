@@ -97,6 +97,7 @@
     <Content Include="HouseProphecy.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Class1.cs" />
     <Compile Include="Components\Constants.cs" />
     <Compile Include="Components\DataProvider.cs" />
     <Compile Include="Components\Forecast.cs" />
