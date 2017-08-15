@@ -13,23 +13,23 @@ using System.Web.Script.Serialization;
 
 namespace HouseProphecy
 {
-    public partial class HouseProphecy : System.Web.UI.Page
+    public partial class HouseProphecy : Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (IsAjaxRequest(Request))
                 {
-                    var s= Request.Form[0];
+                    var json = Request.Form[0];
                     ForecastJSON user = JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]);
                     Response.Write("request ok");
                     Response.End();
                 }
             }
         }
-        
+
         public bool IsAjaxRequest(HttpRequest request)
         {
             if (request == null)

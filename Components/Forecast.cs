@@ -26,19 +26,11 @@ namespace HouseProphecy.Components
                             "input1",
                             new StringTable()
                             {
-                                ColumnNames = new string[] {"stateName", "zipCode", "price", "bedRooms", "bathRooms", "square", "cats.ok", "dogs.ok",
-                                    "furnished", "no.smoking", "wheelchair.accessible", "apartment", "condo", "cottage.cabin", "duplex",
-                                    "flat", "house", "in.law", "loft", "townhouse", "manufactured", "assisted.living", "land", "w.d.in.unit",
-                                    "w.d.hookups", "laundry.in.bldg", "laundry.on.site", "no.laundry.on.site", "carport", "attached.garage",
-                                    "detached.garage", "off.street.parking", "street.parking", "valet.parking", "no.parking"},
-                                Values = new string[,] { {  searchData.State, searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
+                                ColumnNames = new string[] {"zipCode", "price", "bedRooms", "bathRooms", "square", "cats.ok", "dogs.ok",
+                                    "furnished", "no.smoking", "wheelchair.accessible", "housing.type", "w.d", "laundry", "parking"},
+                                Values = new string[,] { { searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
                                         searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
-                                        searchData.WheelchairAccessible, searchData.Apartment, searchData.Condo, searchData.CottageCabin,
-                                        searchData.Duplex, searchData.Flat, searchData.House, searchData.InLaw, searchData.Loft,
-                                        searchData.Townhouse, searchData.Manufactured, searchData.AssistedLiving, searchData.Land,
-                                        searchData.WDInUnit, searchData.WDHookups, searchData.LaundryInBldg, searchData.LaundryOnSite,
-                                        searchData.NoLaundryOnSite, searchData.Carport, searchData.AttachedGarage, searchData.DetachedGarage,
-                                        searchData.OffStreetParking, searchData.StreetParking, searchData.ValetParking, searchData.NoParking}, }
+                                        searchData.WheelchairAccessible, searchData.HousingType, searchData.WD, searchData.Laundry, searchData.Parking}, }
                             }
                         },
                     },
@@ -46,9 +38,9 @@ namespace HouseProphecy.Components
                     {
                     }
                 };
-                const string apiKey = "jYWqksieN4PqeviJobODIbEB/3qAyyr33GY5dsEBNMpq/+fMqZR7dusU6csr067Vun9nBB+9r7vqbleSMuVBIg==";
+                const string apiKey = "VVWs3xLCbMjikDaIkff2JxIk0szarNMQvxsM4Vlg3wYfGzXIIXs5GKza7yv01lbS0HzEPGAQ0HDKxoCnJem36g==";
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/c46506ec650d43adba072b69893c052c/execute?api-version=2.0&details=true");
+                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/247be5ed82b5430cb9e220cd025a63f4/execute?api-version=2.0&details=true");
                 var response = await client.PostAsJsonAsync("", scoreRequest);
                 if (response.IsSuccessStatusCode)
                 {

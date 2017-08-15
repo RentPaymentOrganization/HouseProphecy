@@ -73,13 +73,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\styles.css" />
     <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
     <None Include=".gitignore" />
     <Content Include="myrange.html" />
-    <Content Include="Images\bg_page.png" />
-    <Content Include="Images\head-icon.png" />
     <Content Include="js\main.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -97,8 +94,6 @@
     <Content Include="HouseProphecy.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Class1.cs" />
-    <Compile Include="Components\Class2.cs" />
     <Compile Include="Components\Constants.cs" />
     <Compile Include="Components\DataProvider.cs" />
     <Compile Include="Components\Forecast.cs" />
