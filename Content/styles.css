@@ -1,0 +1,45 @@
+html {
+    padding-top: 50px;
+    background-image: url(../Images/bg_page.png);
+    padding-bottom: 25px;
+}
+
+body {
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+    background-color: #E1EDEB;
+}
+
+h1 {
+    font-family: 'Kurale', 'Arial Black', serif;
+    font-weight: normal;
+    color: #6A94CC;
+    font-size: 2em;
+    margin: 0;
+    padding-left: 40px;
+    background: url(../Images/head-icon.png) no-repeat 10px 10px;
+}
+
+h2 {
+    color: #B1967C;
+    font-family: 'Kurale', 'Arial Black', serif;
+    font-weight: normal;
+    font-size: 1em;
+    border-bottom: 2px white solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin: 0;
+}
+
+td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.font {
+    font-weight: bold;
+    font-size: medium;
+}

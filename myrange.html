@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>
+        .square-range-container {
+            width: 300px;
+            margin:200px;
+        }
+
+            .square-range-container .range {
+                height: 6px;
+                background-color: #AEAEAE;               
+                position: relative;
+            }
+
+            .square-range-container .range_inner {
+                height: inherit;
+                background-color: #FD2016;
+            }
+
+            .square-range-container .range_btn {
+                width: 9px;
+                height: 18px;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+                position: absolute;
+                top: -7px;
+                background-color: #fff;
+                cursor: pointer;
+                margin: 0;
+                padding: 0;
+                border-radius: 2px;
+            }
+
+            .square-range-container span.range_btn_value {
+                position: absolute;
+                top: -30px;
+                font-size: 14px;
+                border: 1px solid #888;
+                padding: 2px 4px;
+                border-radius: 3px;              
+                left: -20px;
+                background: #fff;
+                width: 40px;
+                text-align: center;
+            }
+
+            .square-range-container span.range_btn_value:before {
+                content: " ";
+                width: 0;
+                height: 0;
+                border: 5px solid rgba(255,255,255,0);
+                border-top-color: #888;
+                position: absolute;
+                bottom: -11px;
+                left: 50%;
+                margin-left: -5px;
+            }
+
+            .square-range-container span.range_btn_value:after {
+                content: " ";
+                width: 0;
+                height: 0;
+                border: 5px solid rgba(255,255,255,0);
+                border-top-color: #fff;
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                margin-left: -5px;
+            }
+
+                .square-range-container .range_inner {
+                position: absolute;
+                width: 100%;
+                }
+
+            .square-range-container .range_btn[data-type=min-btn] {
+                left: -9px;
+            }
+
+            .square-range-container .range_btn[data-type=max-btn] {
+                right: -9px;
+            }
+
+            .square-range-container .values {              
+                margin-top: 40px;
+            }
+
+            .square-range-container .values .values-span{
+                position:absolute;
+                font-size:14px;
+                top:20px;
+            }
+
+            .square-range-container .values .values-span.min-value {
+                left:-20px;
+            }
+
+            .square-range-container .values .values-span.max-value {
+                right: -20px;
+            }
+              
+
+    </style>
+    <div class="square-range-container" data-type="range">
+       
+        <div class="range" data-type="range-element">
+            <div class="range_inner" data-type="range-inner-element">
+               
+            </div>
+            <div class="range_btn" data-type="min-btn">
+                <span class="range_btn_value" data-type="min-btn-value">100</span>
+            </div>
+            <div class="range_btn" data-type="max-btn">
+                <span class="range_btn_value" data-type="max-btn-value">11000</span>
+            </div>
+            <div class="values">
+                <span class="min-value values-span" data-type="min-val">100</span>
+                <span class="max-value values-span" data-type="max-val">11000</span>
+            </div>
+        </div>
+       
+        <div class="range-values-inputs">
+            <input id="price-min" type="hidden" name="SquareTo" value="100" data-type="input-min">
+            <input id="price-max" type="hidden" name="SquareFrom" value="11000" data-type="input-max">
+        </div>
+    </div>       
+    <script>
+       
+        var myRange = (function () {
+            var container,
+                inner,
+                minBtn,
+                maxBtn,
+                minValue,
+                maxValue,
+                valueWidth,
+                minValueInput,
+                maxValueInput,
+                minValueText,
+                maxValueText;
+
+            function mouseDownMinBtn(e) {
+                e.preventDefault();
+                document.addEventListener("mousemove", mouseMoveMinBtn);                               
+            }
+
+            function mouseDownMaxBtn(e) {               
+                e.preventDefault();
+                document.addEventListener("mousemove", mouseMoveMaxBtn);
+            }
+
+            function mouseUpMinBtn(e) {
+                e.preventDefault();
+                document.removeEventListener("mousemove", mouseMoveMaxBtn);
+                document.removeEventListener("mousemove", mouseMoveMinBtn);
+            }
+
+            function mouseMoveMinBtn(e) {
+              
+                var valuePercent,
+                    value,
+                    innerX = getCoords(inner).left,
+                    maxX = getCoords(maxBtn).left - innerX,
+                    innerRangeWidth = innerRange.offsetWidth,
+                    innerWidth = inner.offsetWidth,
+                    elemWidth = minBtn.offsetWidth,
+                    elemX = e.pageX - innerX;
+                    if (elemX < -elemWidth) {
+                        elemX = -elemWidth;
+                }
+
+                if (elemX > maxX - elemWidth) {
+                    elemX = maxX - elemWidth;
+                }
+                
+                minBtn.style.left = elemX + "px"; 
+                
+                valuePercent = Math.round(100 - (innerWidth - elemX - elemWidth) / innerWidth * 100),
+                    value = Math.round(valueWidth * valuePercent / 100) + parseInt(minValue);
+
+                minValueInput.value = value;
+                minValueText.innerText = value;
+              
+                innerRange.style.width = maxX - elemX + "px";
+                innerRange.style.left = elemX+"px";
+                
+            }
+
+            function mouseMoveMaxBtn(e) {
+
+                var valuePercent,
+                    value,               
+                    innerX = getCoords(inner).left,
+                    innerWidth=inner.offsetWidth,
+                    minX = getCoords(minBtn).left - innerX,
+                    innerRangeWidth = innerRange.offsetWidth,
+                    elemWidth = maxBtn.offsetWidth,
+                    elemX = e.pageX - innerX;
+                
+                if (elemX < minX+elemWidth) {
+                    elemX = minX + elemWidth;
+                }
+
+                if (elemX > innerWidth) {
+                    elemX = innerWidth;
+                }
+               
+                maxBtn.style.left = elemX + "px";
+
+                valuePercent = Math.round(100 - (innerWidth - elemX) / innerWidth * 100),
+                    value = Math.round(valueWidth * valuePercent / 100) + parseInt(minValue);
+
+                maxValueInput.value = value;
+                maxValueText.innerText = value;
+            
+                innerRange.style.width = elemX - minX + "px";
+                innerRange.style.right = innerWidth - elemX + "px";
+               
+            }
+
+            function getCoords(elem) {
+                var box = elem.getBoundingClientRect();
+
+                return {
+                    top: box.top + pageYOffset,
+                    left: box.left + pageXOffset
+                };
+            }
+
+            var _setUpListners = function () {
+                minBtn.addEventListener('mousedown', mouseDownMinBtn);
+                maxBtn.addEventListener('mousedown', mouseDownMaxBtn);
+                document.addEventListener('mouseup', mouseUpMinBtn);
+            }
+
+            var init = function (selector) {
+                container = document.querySelector(selector);
+                inner = container.querySelector('[data-type=range-element]');
+                innerRange = container.querySelector('[data-type=range-inner-element]');
+                minBtn = container.querySelector('[data-type=min-btn]');
+                maxBtn = container.querySelector('[data-type=max-btn]');
+                minValueInput = container.querySelector('[data-type=input-min]');
+                maxValueInput = container.querySelector('[data-type=input-max]'); 
+                minValueText = minBtn.querySelector('[data-type=min-btn-value]');
+                maxValueText = maxBtn.querySelector('[data-type=max-btn-value]'); 
+                minValue = container.querySelector('[data-type=input-min]').value; 
+                maxValue = container.querySelector('[data-type=input-max]').value; 
+                valueWidth = maxValue - minValue;
+                _setUpListners();
+               
+            }        
+
+            return {
+                init: init
+            };
+
+        })();
+
+        myRange.init('.square-range-container');
+    </script>
+</body>
+</html>
