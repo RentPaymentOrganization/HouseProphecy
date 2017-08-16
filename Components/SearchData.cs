@@ -16,9 +16,9 @@ namespace HouseProphecy.Components
         public string Furnished { get; set; }
         public string NoSmoking { get; set; }
         public string WheelchairAccessible { get; set; }
-        public string HousingType { get; set; }
+        public List<string> HousingType { get; set; } = new List<string>();
         public string WD { get; set; }
         public string Laundry { get; set; }
-        public string Parking { get; set; }
+        public List<string> Parking { get; set; } = new List<string>();
     }
 }

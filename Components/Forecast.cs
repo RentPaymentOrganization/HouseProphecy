@@ -30,7 +30,7 @@ namespace HouseProphecy.Components
                                     "furnished", "no.smoking", "wheelchair.accessible", "housing.type", "w.d", "laundry", "parking"},
                                 Values = new string[,] { { searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
                                         searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
-                                        searchData.WheelchairAccessible, searchData.HousingType, searchData.WD, searchData.Laundry, searchData.Parking}, }
+                                        searchData.WheelchairAccessible, searchData.HousingType[0], searchData.WD, searchData.Laundry, searchData.Parking[0]}, }
                             }
                         },
                     },
