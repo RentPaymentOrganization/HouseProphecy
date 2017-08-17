@@ -51,47 +51,100 @@ namespace HouseProphecy
             searchData.BedRooms = json.BedRooms;
             searchData.BathRooms = json.BathRooms;
             searchData.Square = json.SquareTo;
-            searchData.CatsOk = json.CatsOk;
-            searchData.DogsOk = json.DogsOk;
-            searchData.Furnished = json.Furnished;
-            searchData.NoSmoking = json.NoSmokinkg;
-            searchData.WheelchairAccessible = json.WheelchairAccessible;
+            searchData.CatsOk = ChoiseRadioButton(json.CatsOk);
+            searchData.DogsOk = ChoiseRadioButton(json.DogsOk);
+            searchData.Furnished = ChoiseRadioButton(json.Furnished);
+            searchData.NoSmoking = ChoiseRadioButton(json.NoSmokinkg);
+            searchData.WheelchairAccessible = ChoiseRadioButton(json.WheelchairAccessible);
             searchData.HousingType = HousingType(json);
-            searchData.WD = json.Laundry;
-            searchData.Laundry = json.LaundrySeparation;
+            searchData.Laundry = Laundry(json.Laundry);
+            searchData.LaundrySeparation = LaundrySeparation(json.LaundrySeparation);
             searchData.Parking = Parking(json);
+        }
+
+        private List<string> LaundrySeparation(string str)
+        {
+            List<string> laundrySeparation = new List<string>();
+            if (str == "NoMatter")
+            {
+                laundrySeparation.Add("laundry.in.bldg");
+                laundrySeparation.Add("laundry.on.site");
+                laundrySeparation.Add("no.laundry.on.site");
+            }
+            else if (str == "InBldg")
+            {
+                laundrySeparation.Add("laundry.in.bldg");
+            }
+            else if (str == "OnSite")
+            {
+                laundrySeparation.Add("laundry.on.site");
+            }
+            else
+            {
+                laundrySeparation.Add("no.laundry.on.site");
+            }
+            return laundrySeparation;
+        }
+
+        private List<string> Laundry(string str)
+        {
+            List<string> laundry = new List<string>();
+            if (str == "NoMatter")
+            {
+                laundry.Add("w.d.in.unit");
+                laundry.Add("w.d.hookups");
+            }
+            else if (str == "InUnit")
+            {
+                laundry.Add("w.d.in.unit");
+            }
+            else
+            {
+                laundry.Add("w.d.hookups");
+            }
+            return laundry;
         }
 
         private List<string> Parking(ForecastJSON json)
         {
             List<string> parking = new List<string>();
-            if (json.Apartment != null)
+            if (json.Carport != null)
             {
-                parking.Add(json.Carport.ToString());
+                parking.Add("carport");
             }
-            if (json.Condo != null)
+            if (json.AttachedGarage != null)
             {
-                parking.Add(json.AttachedGarage.ToString());
+                parking.Add("attached.garage");
             }
-            if (json.CottageCabin != null)
+            if (json.DetachedGarage != null)
             {
-                parking.Add(json.DetachedGarage.ToString());
+                parking.Add("detached.garage");
             }
-            if (json.Duplex != null)
+            if (json.OffStreetParking != null)
             {
-                parking.Add(json.OffStreetParking.ToString());
+                parking.Add("off.street.parking");
             }
-            if (json.Flat != null)
+            if (json.StreetParking != null)
             {
-                parking.Add(json.StreetParking.ToString());
+                parking.Add("street.parking");
             }
-            if (json.House != null)
+            if (json.ValetParking != null)
             {
-                parking.Add(json.ValetParking.ToString());
+                parking.Add("valet.parking");
             }
-            if (json.InLaw != null)
+            if (json.NoParking != null)
             {
-                parking.Add(json.NoParking.ToString());
+                parking.Add("no.parking");
+            }
+            if (parking.Count == 0)
+            {
+                parking.Add("carport");
+                parking.Add("attached.garage");
+                parking.Add("detached.garage");
+                parking.Add("off.street.parking");
+                parking.Add("street.parking");
+                parking.Add("valet.parking");
+                parking.Add("no.parking");
             }
             return parking;
         }
@@ -101,71 +154,87 @@ namespace HouseProphecy
             List<string> housingType = new List<string>();
             if (json.Apartment != null)
             {
-                housingType.Add(json.Apartment.ToString());
+                housingType.Add("apartment");
             }
             if (json.Condo != null)
             {
-                housingType.Add(json.Condo.ToString());
+                housingType.Add("condo");
             }
             if (json.CottageCabin != null)
             {
-                housingType.Add(json.CottageCabin.ToString());
+                housingType.Add("cottage.cabin");
             }
             if (json.Duplex != null)
             {
-                housingType.Add(json.Duplex.ToString());
+                housingType.Add("duplex");
             }
             if (json.Flat != null)
             {
-                housingType.Add(json.Flat.ToString());
+                housingType.Add("flat");
             }
             if (json.House != null)
             {
-                housingType.Add(json.House.ToString());
+                housingType.Add("house");
             }
             if (json.InLaw != null)
             {
-                housingType.Add(json.InLaw.ToString());
+                housingType.Add("in.law");
             }
             if (json.Loft != null)
             {
-                housingType.Add(json.Loft.ToString());
+                housingType.Add("loft");
             }
             if (json.Townhouse != null)
             {
-                housingType.Add(json.Townhouse.ToString());
+                housingType.Add("townhouse");
             }
             if (json.Manufactured != null)
             {
-                housingType.Add(json.Manufactured.ToString());
+                housingType.Add("manufactured");
             }
             if (json.AssistedLiving != null)
             {
-                housingType.Add(json.AssistedLiving.ToString());
+                housingType.Add("assisted.living");
             }
             if (json.Land != null)
             {
-                housingType.Add(json.Land.ToString());
+                housingType.Add("land");
+            }
+            if (housingType.Count == 0)
+            {
+                housingType.Add("apartment");
+                housingType.Add("condo");
+                housingType.Add("cottage.cabin");
+                housingType.Add("duplex");
+                housingType.Add("flat");
+                housingType.Add("house");
+                housingType.Add("in.law");
+                housingType.Add("loft");
+                housingType.Add("townhouse");
+                housingType.Add("manufactured");
+                housingType.Add("assisted.living");
+                housingType.Add("land");
             }
             return housingType;
         }
 
-        private string ChoiseRadioButton(RadioButton rbNull, RadioButton rb0, RadioButton rb1)
+        private List<string> ChoiseRadioButton(string str)
         {
-            string message = "";
-            if (rbNull.Checked)
+            List<string> list = new List<string>();
+            if (str == "NoMatter")
             {
-                message = " ";
+                list.Add("1");
+                list.Add("0");
             }
-            else if (rb0.Checked)
+            else if (str == "Yes")
             {
-                message = "0";
+                list.Add("1");
             }
-            else if (rb1.Checked)
+            else
             {
-                message = "1";
+                list.Add("0");
             }
-            return message;
+            return list;
         }
 
         public bool IsAjaxRequest(HttpRequest request)

@@ -29,8 +29,8 @@ namespace HouseProphecy.Components
                                 ColumnNames = new string[] {"zipCode", "price", "bedRooms", "bathRooms", "square", "cats.ok", "dogs.ok",
                                     "furnished", "no.smoking", "wheelchair.accessible", "housing.type", "w.d", "laundry", "parking"},
                                 Values = new string[,] { { searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
-                                        searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
-                                        searchData.WheelchairAccessible, searchData.HousingType[0], searchData.WD, searchData.Laundry, searchData.Parking[0]}, }
+                                        searchData.Square, searchData.CatsOk[0], searchData.DogsOk[0], searchData.Furnished[0], searchData.NoSmoking[0],
+                                        searchData.WheelchairAccessible[0], searchData.HousingType[0], searchData.Laundry[0], searchData.LaundrySeparation[0], searchData.Parking[0]}, }
                             }
                         },
                     },
