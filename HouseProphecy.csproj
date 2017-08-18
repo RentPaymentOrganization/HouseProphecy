@@ -99,15 +99,13 @@
     <Compile Include="Components\Forecast.cs" />
     <Compile Include="Components\ForecastJSON.cs" />
     <Compile Include="Components\JSObjectOperation.cs" />
+    <Compile Include="Components\ModelData.cs" />
     <Compile Include="Components\SearchData.cs" />
     <Compile Include="Components\SingleTone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HouseProphecy.aspx.cs">
       <DependentUpon>HouseProphecy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HouseProphecy.aspx.designer.cs">
-      <DependentUpon>HouseProphecy.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

@@ -16,28 +16,79 @@ namespace HouseProphecy
     public partial class HouseProphecy : Page
     {
         public SearchData searchData = new SearchData();
+        public ModelData modelData = new ModelData();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (IsAjaxRequest(Request))
                 {
-                    //var json = Request.Form[0];
                     ForecastJSON json = JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]);
-
                     Forecast forecast = new Forecast();
+                    string str;
+                    double val = 0;
+                    int count = 0;
                     FillSearchData(json);
-                    forecast.InvokeRequestResponseService(searchData).Wait();
-
-                    string str = forecast.Result;
-                    str = str.Substring(str.LastIndexOf(",") + 1);
-                    str = str.Substring(0, str.IndexOf("]"));
-                    if (str != "null")
+                    foreach (var catsOk in searchData.CatsOk)
                     {
-                        str = str.Remove(0, 1);
-                        str = str.Remove(str.Length - 1);
-                        NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
-                        str = Math.Round(double.Parse(str, formatInfo), 2).ToString();
+                        modelData.CatsOk = catsOk;
+                        foreach (var dogsOk in searchData.DogsOk)
+                        {
+                            modelData.DogsOk = dogsOk;
+                            foreach (var furnished in searchData.Furnished)
+                            {
+                                modelData.Furnished = furnished;
+                                foreach (var noSmoking in searchData.NoSmoking)
+                                {
+                                    modelData.NoSmoking = noSmoking;
+                                    foreach (var wheelchairAccessible in searchData.WheelchairAccessible)
+                                    {
+                                        modelData.WheelchairAccessible = wheelchairAccessible;
+                                        foreach (var housingType in searchData.HousingType)
+                                        {
+                                            modelData.HousingType = housingType;
+                                            foreach (var laundry in searchData.Laundry)
+                                            {
+                                                modelData.Laundry = laundry;
+                                                foreach (var laundrySeparation in searchData.LaundrySeparation)
+                                                {
+                                                    modelData.LaundrySeparation = laundrySeparation;
+                                                    foreach (var parking in searchData.Parking)
+                                                    {
+                                                        modelData.Parking = parking;
+                                                        modelData.ZipCode = searchData.ZipCode;
+                                                        modelData.BedRooms = searchData.BedRooms;
+                                                        modelData.BathRooms = searchData.BathRooms;
+                                                        modelData.Square = searchData.Square;
+                                                        forecast.InvokeRequestResponseService(modelData).Wait();
+                                                        str = forecast.Result;
+                                                        str = str.Substring(str.LastIndexOf(",") + 1);
+                                                        str = str.Substring(0, str.IndexOf("]"));
+                                                        if (str != "null")
+                                                        {
+                                                            str = str.Remove(0, 1);
+                                                            str = str.Remove(str.Length - 1);
+                                                            NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
+                                                            val += double.Parse(str, formatInfo);
+                                                            count++;
+                                                        }
+                                                        else
+                                                        {
+                                                            goto exit;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    str = Math.Round(val / count, 2).ToString();
+                    exit: if (str == "null")
+                    {
+                        str = "Enter ZIP code";
                     }
                     Response.Write(str);
                     Response.End();
@@ -50,7 +101,8 @@ namespace HouseProphecy
             searchData.ZipCode = json.ZipCode;
             searchData.BedRooms = json.BedRooms;
             searchData.BathRooms = json.BathRooms;
-            searchData.Square = json.SquareTo;
+            NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
+            searchData.Square = ((double.Parse(json.SquareFrom, formatInfo) + double.Parse(json.SquareTo, formatInfo)) / 2).ToString();
             searchData.CatsOk = ChoiseRadioButton(json.CatsOk);
             searchData.DogsOk = ChoiseRadioButton(json.DogsOk);
             searchData.Furnished = ChoiseRadioButton(json.Furnished);

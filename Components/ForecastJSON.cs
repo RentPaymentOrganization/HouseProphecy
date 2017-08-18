@@ -12,7 +12,7 @@ namespace WebForecast.Components
         public string BedRooms { get; set; }
         public string BathRooms { get; set; }
         public string SquareFrom { get; set; }
-        public string SquareTo { get; set; }
+        public string SquareTo { get; set; }        
         public string CatsOk { get; set; }
         public string DogsOk { get; set; }
         public string Furnished { get; set; }

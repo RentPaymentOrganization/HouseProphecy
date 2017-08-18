@@ -15,7 +15,7 @@ namespace HouseProphecy.Components
     public class Forecast
     {
         public string Result { get; set; }
-        public async Task InvokeRequestResponseService(SearchData searchData)
+        public async Task InvokeRequestResponseService(ModelData searchData)
         {
             using (var client = new HttpClient())
             {
@@ -29,8 +29,8 @@ namespace HouseProphecy.Components
                                 ColumnNames = new string[] {"zipCode", "price", "bedRooms", "bathRooms", "square", "cats.ok", "dogs.ok",
                                     "furnished", "no.smoking", "wheelchair.accessible", "housing.type", "w.d", "laundry", "parking"},
                                 Values = new string[,] { { searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
-                                        searchData.Square, searchData.CatsOk[0], searchData.DogsOk[0], searchData.Furnished[0], searchData.NoSmoking[0],
-                                        searchData.WheelchairAccessible[0], searchData.HousingType[0], searchData.Laundry[0], searchData.LaundrySeparation[0], searchData.Parking[0]}, }
+                                        searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
+                                        searchData.WheelchairAccessible, searchData.HousingType, searchData.Laundry, searchData.LaundrySeparation, searchData.Parking}, }
                             }
                         },
                     },
@@ -38,9 +38,9 @@ namespace HouseProphecy.Components
                     {
                     }
                 };
-                const string apiKey = "VVWs3xLCbMjikDaIkff2JxIk0szarNMQvxsM4Vlg3wYfGzXIIXs5GKza7yv01lbS0HzEPGAQ0HDKxoCnJem36g==";
+                const string apiKey = "00IlKN6dag6YrcYXiiT2S3iHgcE5tffscqGg9YMUHv5yCLITDgEi4j1GEh/AkiPVRcGYnGuBP3TfPVt/GyqD7w==";
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/247be5ed82b5430cb9e220cd025a63f4/execute?api-version=2.0&details=true");
+                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/020398bb16e34137b5296421c7da3eb1/execute?api-version=2.0&details=true");
                 var response = await client.PostAsJsonAsync("", scoreRequest);
                 if (response.IsSuccessStatusCode)
                 {
