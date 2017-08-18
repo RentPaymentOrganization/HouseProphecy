@@ -38,9 +38,9 @@ namespace HouseProphecy.Components
                     {
                     }
                 };
-                const string apiKey = "00IlKN6dag6YrcYXiiT2S3iHgcE5tffscqGg9YMUHv5yCLITDgEi4j1GEh/AkiPVRcGYnGuBP3TfPVt/GyqD7w==";
+                const string apiKey = "RcwZKZkxw8o9/wYjBLqHktYKus2Q0mC1dJLUlst+hvvm5KiLOeiRd9ua/TWIbxaOoel7ZpP6/RqfHW/OGVdlKQ==";
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/020398bb16e34137b5296421c7da3eb1/execute?api-version=2.0&details=true");
+                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/d601872b33484176a76e748ed24c0c90/execute?api-version=2.0&details=true");
                 var response = await client.PostAsJsonAsync("", scoreRequest);
                 if (response.IsSuccessStatusCode)
                 {
