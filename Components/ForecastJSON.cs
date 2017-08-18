@@ -12,7 +12,7 @@ namespace WebForecast.Components
         public string BedRooms { get; set; }
         public string BathRooms { get; set; }
         public string SquareFrom { get; set; }
-        public string SquareTo { get; set; }
+        public string SquareTo { get; set; }        
         public string CatsOk { get; set; }
         public string DogsOk { get; set; }
         public string Furnished { get; set; }
@@ -22,7 +22,6 @@ namespace WebForecast.Components
         public string Condo { get; set; }
         public string CottageCabin { get; set; }
         public string Duplex { get; set; }
-
         public string Flat { get; set; }
         public string House { get; set; }
         public string InLaw { get; set; }
@@ -33,7 +32,6 @@ namespace WebForecast.Components
         public string Land { get; set; }
         public string Laundry { get; set; }
         public string LaundrySeparation { get; set; }
-
         public string Carport { get; set; }
         public string AttachedGarage { get; set; }
         public string DetachedGarage { get; set; }

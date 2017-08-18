@@ -90,8 +90,8 @@
                     </div>
 
                     <div class="range-values-inputs">
-                        <input id="price-min" type="hidden" name="SquareTo" value="100" data-type="input-min">
-                        <input id="price-max" type="hidden" name="SquareFrom" value="11000" data-type="input-max">
+                        <input id="price-min" type="hidden" name="SquareFrom" value="100" data-type="input-min">
+                        <input id="price-max" type="hidden" name="SquareTo" value="11000" data-type="input-max">
                     </div>
                 </div>
             </div>
