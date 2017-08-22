@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-    <Content Include="HouseProphecy.aspx" />
+    <Content Include="dist\HouseProphecy.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Constants.cs" />
@@ -103,7 +103,7 @@
     <Compile Include="Components\SearchData.cs" />
     <Compile Include="Components\SingleTone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HouseProphecy.aspx.cs">
+    <Compile Include="dist\HouseProphecy.aspx.cs">
       <DependentUpon>HouseProphecy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

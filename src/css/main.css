@@ -1,10 +1,12 @@
 /*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
+
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -19,6 +21,7 @@ html {
 body {
     font-size: 14px;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -38,6 +41,7 @@ body {
     text-shadow: none;
 }
 
+
 /*
  * A better looking default horizontal rule
  */
@@ -50,6 +54,7 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
+
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -66,6 +71,7 @@ video {
     vertical-align: middle;
 }
 
+
 /*
  * Remove default fieldset styles.
  */
@@ -76,6 +82,7 @@ fieldset {
     padding: 0;
 }
 
+
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -83,6 +90,7 @@ fieldset {
 textarea {
     resize: vertical;
 }
+
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -95,11 +103,12 @@ textarea {
     padding: 0.2em 0;
 }
 
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
-.container {
+#main-container {
     width: 1170px;
     margin: 0 auto;
 }
@@ -132,9 +141,9 @@ textarea {
     margin-left: 30px;
 }
 
-    .subgroup:first-child {
-        margin-left: 0;
-    }
+.subgroup:first-child {
+    margin-left: 0;
+}
 
 .submit-button {
     margin-top: 30px;
@@ -148,13 +157,13 @@ textarea {
     display: none;
 }
 
-    .state-input-window.active {
-        display: block;
-        position: absolute;
-        background: #fff;
-        border: 1px solid #cccccc;
-        width: 100%;
-    }
+.state-input-window.active {
+    display: block;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #cccccc;
+    width: 100%;
+}
 
 .state-input-window-list {
     list-style: none;
@@ -172,104 +181,106 @@ textarea {
 
 .square-range-container {
     width: 300px;
-    margin-left:30px;
+    margin-left: 30px;
 }
 
-    .square-range-container .range {
-        height: 6px;
-        background-color: #AEAEAE;
-        position: relative;
-    }
+.square-range-container .range {
+    height: 6px;
+    background-color: #AEAEAE;
+    position: relative;
+}
 
-    .square-range-container .range_inner {
-        height: inherit;
-        background-color: #FD2016;
-    }
+.square-range-container .range_inner {
+    height: inherit;
+    background-color: #FD2016;
+}
 
-    .square-range-container .range_btn {
-        width: 9px;
-        height: 18px;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
-        position: absolute;
-        top: -7px;
-        background-color: #fff;
-        cursor: pointer;
-        margin: 0;
-        padding: 0;
-        border-radius: 2px;
-    }
+.square-range-container .range_btn {
+    width: 9px;
+    height: 18px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: -7px;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border-radius: 2px;
+}
 
-    .square-range-container span.range_btn_value {
-        position: absolute;
-        top: -30px;
-        font-size: 14px;
-        border: 1px solid #888;
-        padding: 2px 4px;
-        border-radius: 3px;
-        left: -20px;
-        background: #fff;
-        width: 40px;
-        text-align: center;
-    }
+.square-range-container span.range_btn_value {
+    position: absolute;
+    top: -30px;
+    font-size: 14px;
+    border: 1px solid #888;
+    padding: 2px 4px;
+    border-radius: 3px;
+    left: -20px;
+    background: #fff;
+    width: 40px;
+    text-align: center;
+}
 
-        .square-range-container span.range_btn_value:before {
-            content: " ";
-            width: 0;
-            height: 0;
-            border: 5px solid rgba(255,255,255,0);
-            border-top-color: #888;
-            position: absolute;
-            bottom: -11px;
-            left: 50%;
-            margin-left: -5px;
-        }
+.square-range-container span.range_btn_value:before {
+    content: " ";
+    width: 0;
+    height: 0;
+    border: 5px solid rgba(255, 255, 255, 0);
+    border-top-color: #888;
+    position: absolute;
+    bottom: -11px;
+    left: 50%;
+    margin-left: -5px;
+}
 
-        .square-range-container span.range_btn_value:after {
-            content: " ";
-            width: 0;
-            height: 0;
-            border: 5px solid rgba(255,255,255,0);
-            border-top-color: #fff;
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            margin-left: -5px;
-        }
+.square-range-container span.range_btn_value:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border: 5px solid rgba(255, 255, 255, 0);
+    border-top-color: #fff;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -5px;
+}
 
-    .square-range-container .range_inner {
-        position: absolute;
-        width: 100%;
-    }
+.square-range-container .range_inner {
+    position: absolute;
+    width: 100%;
+}
 
-    .square-range-container .range_btn[data-type=min-btn] {
-        left: -9px;
-    }
+.square-range-container .range_btn[data-type=min-btn] {
+    left: -9px;
+}
 
-    .square-range-container .range_btn[data-type=max-btn] {
-        right: -9px;
-    }
+.square-range-container .range_btn[data-type=max-btn] {
+    right: -9px;
+}
 
-    .square-range-container .values {
-        margin-top: 40px;
-    }
+.square-range-container .values {
+    margin-top: 40px;
+}
 
-        .square-range-container .values .values-span {
-            position: absolute;
-            font-size: 14px;
-            top: 20px;
-        }
+.square-range-container .values .values-span {
+    position: absolute;
+    font-size: 14px;
+    top: 20px;
+}
 
-            .square-range-container .values .values-span.min-value {
-                left: -20px;
-            }
+.square-range-container .values .values-span.min-value {
+    left: -20px;
+}
 
-            .square-range-container .values .values-span.max-value {
-                right: -20px;
-            }
+.square-range-container .values .values-span.max-value {
+    right: -20px;
+}
+
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
 
 /*
  * Hide visually and from screen readers
@@ -278,6 +289,7 @@ textarea {
 .hidden {
     display: none !important;
 }
+
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -295,21 +307,23 @@ textarea {
     width: 1px;
 }
 
-    /*
+
+/*
  * Extends the .visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
 
-    .visuallyhidden.focusable:active,
-    .visuallyhidden.focusable:focus {
-        clip: auto;
-        height: auto;
-        margin: 0;
-        overflow: visible;
-        position: static;
-        width: auto;
-    }
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
 
 /*
  * Hide visually and from screen readers, but maintain layout
@@ -322,6 +336,7 @@ textarea {
 .no-margin-left {
     margin-left: 0;
 }
+
 
 /*
  * Clearfix: contain floats
@@ -337,13 +352,16 @@ textarea {
 
 .clearfix:before,
 .clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
 }
 
 .clearfix:after {
     clear: both;
 }
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -355,9 +373,13 @@ textarea {
     /* Style adjustments for viewports that meet the condition */
 }
 
-@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
+
 
 /* ==========================================================================
    Print styles.
@@ -372,66 +394,55 @@ textarea {
     *:first-letter,
     *:first-line {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
+        color: #000 !important;
+        /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
     }
-
     a,
     a:visited {
         text-decoration: underline;
     }
-
-        a[href]:after {
-            content: " (" attr(href) ")";
-        }
-
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
     abbr[title]:after {
         content: " (" attr(title) ")";
     }
-
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
         content: "";
     }
-
     pre,
     blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
-
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-
     thead {
         display: table-header-group;
     }
-
     tr,
     img {
         page-break-inside: avoid;
     }
-
     img {
         max-width: 100% !important;
     }
-
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3;
     }
-
     h2,
     h3 {
         page-break-after: avoid;
