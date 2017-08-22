@@ -253,3 +253,23 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+#webpack
+.DS_Store
+.dist
+nodemon.json
+server/controllers/config/heroku.dev.js
+logs
+*.log
+npm-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+.nyc_output
+.lock-wscript
+build/Release
+node_modules/
+.npm
