@@ -5,7 +5,7 @@ using System.Data;
 using static HouseProphecy.Components.Constants;
 using System;
 
-//using static RentPayment.Constants;
+//using static RentPayment.Constants;//
 namespace RentPayment.DataProviders
 {
     public partial class DataProvider : SingleTone<DataProvider>
