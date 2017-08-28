@@ -28,11 +28,7 @@ module.exports = {
             filename: 'index.html',
             template: 'index.html',
             inject: true,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeAttributeQuotes: true
-            }
+            
         }),
         new UglifyJSPlugin({
             ecma: 8,
