@@ -60,7 +60,10 @@ namespace HouseProphecy
                                                         modelData.BedRooms = searchData.BedRooms;
                                                         modelData.BathRooms = searchData.BathRooms;
                                                         modelData.Square = searchData.Square;
+                                                        //DateTime begin = DateTime.Now;
                                                         forecast.InvokeRequestResponseService(modelData).Wait();
+                                                        //DateTime end = DateTime.Now;
+                                                        //TimeSpan rez = end - begin;
                                                         str = forecast.Result;
                                                         str = str.Substring(str.LastIndexOf(",") + 1);
                                                         str = str.Substring(0, str.IndexOf("]"));
