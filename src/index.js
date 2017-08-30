@@ -50,8 +50,9 @@ myRange.init('.square-range-container');
 //getInfo button
 
 let getInfoButton=document.querySelector('.get-info-button');
-getInfoButton.addEventListener('click',e=>{
+getInfoButton.addEventListener('click',function(e){
     e.preventDefault();
+    console.log('send');
     let serializedMainForm=serialize(mainForm);
     serializedMainForm.Action="getInfo";
     let data = JSON.stringify(serializedMainForm);
