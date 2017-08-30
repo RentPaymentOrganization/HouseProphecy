@@ -152,58 +152,71 @@ namespace RentPayment.DataProviders
 
         #region getting data
 
-        public DataSet GetStateNames()
+        //public DataSet GetStateNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStateNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetCountyNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetCountyNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetCityNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetCityNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetStreetNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStreetNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetStreetNumberNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStreetNumberNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetZipCodeNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetZipCodeNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetBedRoomNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetBedRoomNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        //public DataSet GetBathRoomNames()
+        //{
+        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetBathRoomNames);
+        //    return GetDataSet(myCommand);
+
+        //}
+
+        public DataSet GetListInfo()
         {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStateNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetCountyNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetCountyNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetCityNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetCityNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetStreetNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStreetNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetStreetNumberNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStreetNumberNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetZipCodeNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetZipCodeNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetBedRoomNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetBedRoomNames);
-            return GetDataSet(myCommand);
-
-        }
-
-        public DataSet GetBathRoomNames()
-        {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetBathRoomNames);
+            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetListInfo);
+            SqlParameter nameParam = new SqlParameter
+            {
+                ParameterName = "@streetNumberValue",
+                Value = "100"
+            };
+            myCommand.Parameters.Add(nameParam);
             return GetDataSet(myCommand);
 
         }

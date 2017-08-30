@@ -9,6 +9,10 @@ namespace WebForecast.Components
     {
         public string State { get; set; }
         public string ZipCode { get; set; }
+        public string County { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string StreetNumber { get; set; }
         public string BedRooms { get; set; }
         public string BathRooms { get; set; }
         public string SquareFrom { get; set; }
@@ -39,5 +43,6 @@ namespace WebForecast.Components
         public string StreetParking { get; set; }
         public string ValetParking { get; set; }
         public string NoParking { get; set; }
+        public string Action { get; set; }
     }
 }

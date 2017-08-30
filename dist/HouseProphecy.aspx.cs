@@ -24,60 +24,63 @@ namespace HouseProphecy
                 if (IsAjaxRequest(Request))
                 {
                     ForecastJSON json = JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]);
-                    Forecast forecast = new Forecast();
-                    string str;
-                    double val = 0;
-                    int count = 0;
-                    FillSearchData(json);
-                    foreach (var catsOk in searchData.CatsOk)
+                    if (json.Action == "getPrice")
                     {
-                        modelData.CatsOk = catsOk;
-                        foreach (var dogsOk in searchData.DogsOk)
+                        Forecast forecast = new Forecast();
+                        string str;
+                        double val = 0;
+                        int count = 0;
+                        FillSearchData(json);
+                        foreach (var catsOk in searchData.CatsOk)
                         {
-                            modelData.DogsOk = dogsOk;
-                            foreach (var furnished in searchData.Furnished)
+                            modelData.CatsOk = catsOk;
+                            foreach (var dogsOk in searchData.DogsOk)
                             {
-                                modelData.Furnished = furnished;
-                                foreach (var noSmoking in searchData.NoSmoking)
+                                modelData.DogsOk = dogsOk;
+                                foreach (var furnished in searchData.Furnished)
                                 {
-                                    modelData.NoSmoking = noSmoking;
-                                    foreach (var wheelchairAccessible in searchData.WheelchairAccessible)
+                                    modelData.Furnished = furnished;
+                                    foreach (var noSmoking in searchData.NoSmoking)
                                     {
-                                        modelData.WheelchairAccessible = wheelchairAccessible;
-                                        foreach (var housingType in searchData.HousingType)
+                                        modelData.NoSmoking = noSmoking;
+                                        foreach (var wheelchairAccessible in searchData.WheelchairAccessible)
                                         {
-                                            modelData.HousingType = housingType;
-                                            foreach (var laundry in searchData.Laundry)
+                                            modelData.WheelchairAccessible = wheelchairAccessible;
+                                            foreach (var housingType in searchData.HousingType)
                                             {
-                                                modelData.Laundry = laundry;
-                                                foreach (var laundrySeparation in searchData.LaundrySeparation)
+                                                modelData.HousingType = housingType;
+                                                foreach (var laundry in searchData.Laundry)
                                                 {
-                                                    modelData.LaundrySeparation = laundrySeparation;
-                                                    foreach (var parking in searchData.Parking)
+                                                    modelData.Laundry = laundry;
+                                                    foreach (var laundrySeparation in searchData.LaundrySeparation)
                                                     {
-                                                        modelData.Parking = parking;
-                                                        modelData.ZipCode = searchData.ZipCode;
-                                                        modelData.BedRooms = searchData.BedRooms;
-                                                        modelData.BathRooms = searchData.BathRooms;
-                                                        modelData.Square = searchData.Square;
-                                                        //DateTime begin = DateTime.Now;
-                                                        forecast.InvokeRequestResponseService(modelData).Wait();
-                                                        //DateTime end = DateTime.Now;
-                                                        //TimeSpan rez = end - begin;
-                                                        str = forecast.Result;
-                                                        str = str.Substring(str.LastIndexOf(",") + 1);
-                                                        str = str.Substring(0, str.IndexOf("]"));
-                                                        if (str != "null")
+                                                        modelData.LaundrySeparation = laundrySeparation;
+                                                        foreach (var parking in searchData.Parking)
                                                         {
-                                                            str = str.Remove(0, 1);
-                                                            str = str.Remove(str.Length - 1);
-                                                            NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
-                                                            val += double.Parse(str, formatInfo);
-                                                            count++;
-                                                        }
-                                                        else
-                                                        {
-                                                            goto exit;
+                                                            modelData.Parking = parking;
+                                                            modelData.ZipCode = searchData.ZipCode;
+                                                            modelData.BedRooms = searchData.BedRooms;
+                                                            modelData.BathRooms = searchData.BathRooms;
+                                                            modelData.Square = searchData.Square;
+                                                            //DateTime begin = DateTime.Now;
+                                                            forecast.InvokeRequestResponseService(modelData).Wait();
+                                                            //DateTime end = DateTime.Now;
+                                                            //TimeSpan rez = end - begin;
+                                                            str = forecast.Result;
+                                                            str = str.Substring(str.LastIndexOf(",") + 1);
+                                                            str = str.Substring(0, str.IndexOf("]"));
+                                                            if (str != "null")
+                                                            {
+                                                                str = str.Remove(0, 1);
+                                                                str = str.Remove(str.Length - 1);
+                                                                NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
+                                                                val += double.Parse(str, formatInfo);
+                                                                count++;
+                                                            }
+                                                            else
+                                                            {
+                                                                goto exit;
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -87,16 +90,39 @@ namespace HouseProphecy
                                 }
                             }
                         }
+                        str = Math.Round(val / count, 2).ToString();
+                        exit: if (str == "null")
+                        {
+                            str = "Enter ZIP code";
+                        }
+                        Response.Write(str);
+                        Response.End();
                     }
-                    str = Math.Round(val / count, 2).ToString();
-                    exit: if (str == "null")
+                    else if (json.Action == "getInfo")
                     {
-                        str = "Enter ZIP code";
+                        var info = DataProvider.Instance.GetListInfo().Tables[0];
+                        var json2 = DataTableToJSON(info);
                     }
-                    Response.Write(str);
-                    Response.End();
                 }
             }
+        }
+        public static object DataTableToJSON(DataTable table)
+        {
+            var list = new List<Dictionary<string, object>>();
+
+            foreach (DataRow row in table.Rows)
+            {
+                var dict = new Dictionary<string, object>();
+
+                foreach (DataColumn col in table.Columns)
+                {
+                    dict[col.ColumnName] = (Convert.ToString(row[col]));
+                }
+                list.Add(dict);
+            }
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+            return serializer.Serialize(list);
         }
 
         private void FillSearchData(ForecastJSON json)
