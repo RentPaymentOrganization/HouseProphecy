@@ -27,7 +27,9 @@ document.body.addEventListener('click', function(e) {
 let mainForm = document.getElementById('main-form');
 mainForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    let data = JSON.stringify(serialize(mainForm));
+    let serializedMainForm=serialize(mainForm);
+    serializedMainForm.Action="getPrice";
+    let data = JSON.stringify(serializedMainForm);
     let price = postAjaxJSON(window.location.href, data);
     price.then((res) => {
             console.log(res);
@@ -44,3 +46,18 @@ for (let index = 0; index < selectAllCheckBoxes.length; index++) {
 
 //range slider
 myRange.init('.square-range-container');
+
+//getInfo button
+
+let getInfoButton=document.querySelector('.get-info-button');
+getInfoButton.addEventListener('click',e=>{
+    e.preventDefault();
+    let serializedMainForm=serialize(mainForm);
+    serializedMainForm.Action="getInfo";
+    let data = JSON.stringify(serializedMainForm);
+    let info = postAjaxJSON(window.location.href, data);
+    info.then((res) => {
+            console.log(res);
+        })
+        .catch(() => console.log('get info error'));
+});

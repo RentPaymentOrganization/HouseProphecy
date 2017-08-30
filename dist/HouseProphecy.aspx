@@ -40,7 +40,7 @@
                     <input type="text" class="subgroup-input" value="" name="City">
                 </div>
                 <div class="subgroup">
-                    <div class="subgroup-title">City</div>
+                    <div class="subgroup-title">Street</div>
                     <input type="text" class="subgroup-input" value="" name="Street">
                 </div>
                 <div class="subgroup no-margin-left">
@@ -325,6 +325,7 @@
             </div>
 
             <input type="submit" value="Send" class="submit-button">
+            <input type="button" value="getInfo" class="get-info-button">
         </form>
         <div id="result"></div>
     </div>
