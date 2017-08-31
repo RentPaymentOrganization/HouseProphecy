@@ -97,8 +97,8 @@ namespace HouseProphecy
                         }
                     }
                     else if (json.Action == "getInfo")
-                    {
-                        str = DataTableToJSON(DataProvider.Instance.GetListInfo(json.State, json.County, json.City, json.Street, json.StreetNumber, json.ZipCode).Tables[0]);
+                    {                       
+                       str = DataTableToJSON(DataProvider.Instance.GetListInfo(json.State, json.County, json.City, json.Street, json.StreetNumber, json.ZipCode).Tables[0]);
                     }
                     Response.Write(str);
                     Response.End();
