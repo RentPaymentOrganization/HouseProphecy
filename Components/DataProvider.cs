@@ -5,7 +5,6 @@ using System.Data;
 using static HouseProphecy.Components.Constants;
 using System;
 
-//using static RentPayment.Constants;//
 namespace RentPayment.DataProviders
 {
     public partial class DataProvider : SingleTone<DataProvider>
@@ -69,10 +68,6 @@ namespace RentPayment.DataProviders
             //sqlConnection.Open();
             return builder.ConnectionString;
         }
-        #endregion
-
-        #region PublicMethods
-
         #endregion
 
         #region Protected Methods
@@ -152,71 +147,15 @@ namespace RentPayment.DataProviders
 
         #region getting data
 
-        //public DataSet GetStateNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStateNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetCountyNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetCountyNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetCityNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetCityNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetStreetNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStreetNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetStreetNumberNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetStreetNumberNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetZipCodeNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetZipCodeNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetBedRoomNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetBedRoomNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        //public DataSet GetBathRoomNames()
-        //{
-        //    SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetBathRoomNames);
-        //    return GetDataSet(myCommand);
-
-        //}
-
-        public DataSet GetListInfo()
+        public DataSet GetListInfo(string stateName, string county, string city, string street, string streetNumber, string zipCode)
         {
             SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetListInfo);
-            SqlParameter nameParam = new SqlParameter
-            {
-                ParameterName = "@streetNumberValue",
-                Value = "100"
-            };
-            myCommand.Parameters.Add(nameParam);
+            myCommand.Parameters.Add(CreateSqlParameter("stateNameValue", SqlDbType.VarChar, stateName));
+            myCommand.Parameters.Add(CreateSqlParameter("countyValue", SqlDbType.VarChar, county));
+            myCommand.Parameters.Add(CreateSqlParameter("cityValue", SqlDbType.VarChar, city));
+            myCommand.Parameters.Add(CreateSqlParameter("streetValue", SqlDbType.VarChar, street));
+            myCommand.Parameters.Add(CreateSqlParameter("streetNumberValue", SqlDbType.VarChar, streetNumber));
+            myCommand.Parameters.Add(CreateSqlParameter("zipCodeValue", SqlDbType.VarChar, zipCode));
             return GetDataSet(myCommand);
 
         }
@@ -237,7 +176,7 @@ namespace RentPayment.DataProviders
                 throw new Exception(ex.Message, ex);
             }
         }
-        #endregion
 
+        #endregion
     }
 }

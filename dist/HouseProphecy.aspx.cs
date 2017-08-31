@@ -23,11 +23,11 @@ namespace HouseProphecy
             {
                 if (IsAjaxRequest(Request))
                 {
+                    string str = "";
                     ForecastJSON json = JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]);
                     if (json.Action == "getPrice")
                     {
                         Forecast forecast = new Forecast();
-                        string str;
                         double val = 0;
                         int count = 0;
                         FillSearchData(json);
@@ -95,24 +95,23 @@ namespace HouseProphecy
                         {
                             str = "Enter ZIP code";
                         }
-                        Response.Write(str);
-                        Response.End();
                     }
                     else if (json.Action == "getInfo")
                     {
-                        var info = DataProvider.Instance.GetListInfo().Tables[0];
-                        var json2 = DataTableToJSON(info);
+                        str = DataTableToJSON(DataProvider.Instance.GetListInfo(json.State, json.County, json.City, json.Street, json.StreetNumber, json.ZipCode).Tables[0]);
                     }
+                    Response.Write(str);
+                    Response.End();
                 }
             }
         }
-        public static object DataTableToJSON(DataTable table)
+        private string DataTableToJSON(DataTable table)
         {
-            var list = new List<Dictionary<string, object>>();
+            List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
 
             foreach (DataRow row in table.Rows)
             {
-                var dict = new Dictionary<string, object>();
+                Dictionary<string, object> dict = new Dictionary<string, object>();
 
                 foreach (DataColumn col in table.Columns)
                 {
