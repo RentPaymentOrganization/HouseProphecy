@@ -1,3 +1,4 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HouseProphecy.aspx.cs" Inherits="HouseProphecy.HouseProphecy" %>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -17,6 +18,6 @@
 <![endif]-->
     <div id="root"></div>       
  
-<script type="text/javascript" src="app.js"></script></body>
+<script type="text/javascript" src="dist/app.js"></script></body>
 
 </html>
