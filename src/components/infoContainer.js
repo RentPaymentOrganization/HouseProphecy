@@ -3,7 +3,7 @@ import React from 'react';
 const InfoContainer = (props) => {
   
     return (
-        <div className="price-container">
+        <div className="info-container">
            {(props.fetching===true)?"Loading...":props.info}
         </div>
     );

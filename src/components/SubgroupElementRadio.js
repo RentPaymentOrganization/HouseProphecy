@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const SubgroupEleemntRadio = props => {
 	return (       
-		<div className="subgroup-element">
-			<input type="radio" name={props.name} className="subgroup-input-radio" value={props.value} defaultChecked={props.defaultChecked}/>
-			<span className="subgroup-input-radio-span">{props.spanText}</span>
+		<div className={props.className}>			
+				<input type="radio" name={props.name} id={props.name+props.value} className="subgroup-input-radio" value={props.value} defaultChecked={props.defaultChecked}/>		
+				<label htmlFor={props.name+props.value} className="subgroup-input-radio-span"><span>{props.spanText}</span></label>
 		</div>
         
 	);

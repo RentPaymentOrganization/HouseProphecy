@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const Subgroup = props => {
 	return (
-		<div className={ props.className?'subgroup ' + props.className:'subgroup'}>
-			<div className="subgroup-title">{props.titleSubgroup}</div>
+		<div className={props.className? props.className:'subgroup'}>
+			<div className={props.classNameST? props.classNameST: 'subgroup-title'}>{props.titleSubgroup}</div>
 			{props.children}
 		</div>
 	);

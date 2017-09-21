@@ -68,8 +68,14 @@ class CheckboxList extends Component {
 	render() {
         
 		let checkBoxList = this.state.data.map(
-			(item) =>   {
-				return  <SubgroupElementCheckbox key={item.name} checked={item.checked ? true : false} name={item.name} value={item.value} onClick={this.changeInputChecked} spanText={item.spanText} />
+			(item,i) =>   {
+				return  <SubgroupElementCheckbox 
+												className={(i==0)?"first-subgroup-element-checkbox subgroup-element":"subgroup-element"}
+												key={item.name} checked={item.checked ? true : false}
+												name={item.name} value={item.value}
+												onClick={this.changeInputChecked}
+												spanText={item.spanText}
+												/>
 			}
 		);
 

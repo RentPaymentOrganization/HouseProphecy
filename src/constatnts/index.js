@@ -5,8 +5,8 @@ const constatnts={
     "GET_INFO":"GET_INFO",
     "GET_INFO_SUCCESS":"GET_INFO_SUCCESS",
     "GET_INFO_FAILED":"GET_INFO_FAILED",
-    //"AJAX_URL":'http://localhost:57861/HouseProphecy.aspx',
-    "AJAX_URL":window.location.href
+    "AJAX_URL":'http://localhost:57861/HouseProphecy.aspx',
+    //"AJAX_URL":window.location.href
 };
 
 export default constatnts;

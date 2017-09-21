@@ -106,13 +106,13 @@ class rangeSlider extends Component {
 
         valuePercent = Math.round(100 - (innerWidth - elemX) / innerWidth * 100),
             value = Math.round(this.valueWidth * valuePercent / 100) + parseInt(this.minValue);
-
+            
             this.maxValueInput.value = value;
             this.maxValueText.innerText = value;
 
             this.innerRange.style.width = elemX - minX + "px";
             this.innerRange.style.right = innerWidth - elemX + "px";
-
+          
     }
 
     render() {
@@ -127,10 +127,8 @@ class rangeSlider extends Component {
                     <div className="range_btn" data-type="max-btn" onMouseDown={this.mouseDownMaxBtn}>
                         <span className="range_btn_value" data-type="max-btn-value">{this.props.max}</span>
                     </div>
-                    <div className="values">
-                        <span className="min-value values-span" data-type="min-val">{this.props.min}</span>
-                        <span className="max-value values-span" data-type="max-val">{this.props.max}</span>
-                    </div>
+                   
+                   
                 </div>
 
                 <div className="range-values-inputs">

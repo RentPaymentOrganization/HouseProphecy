@@ -4,6 +4,7 @@ import PriceConatiner from "../components/priceContainer"
 import  InfoContainer from "../components/infoContainer"
 import {connect} from "react-redux";
 import* as actionsApp from "../actions/index";
+import Header from "../components/Header";
 
 class Wrap extends Component {
     render() {	   
@@ -11,10 +12,16 @@ class Wrap extends Component {
         const onGetInfo=this.props.onGetInfo;   	
         const {info, price, fetchingPrice,fetchingInfo} = this.props;           
 		return (
-			<div className="container">			
-                <Form onGetPrice={onGetPrice} onGetInfo={onGetInfo} info={info}/>
-                <PriceConatiner price={price} fetching={fetchingPrice}/>	   
-                <InfoContainer info={info} fetching={fetchingInfo}/>	              	
+            <div className="container clearfix">			
+                <div className="left-block">
+                    <a href="#" className="logo-link"></a>
+                </div>
+                <div className="right-block">
+                    <Header/>
+                    <Form onGetPrice={onGetPrice} onGetInfo={onGetInfo} info={info}/>
+                    <PriceConatiner price={price} fetching={fetchingPrice}/>	   
+                    <InfoContainer info={info} fetching={fetchingInfo}/>	
+                </div>              	
 			</div>
 		)
 	}

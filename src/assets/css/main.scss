@@ -1,144 +1,117 @@
-/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+@import "base";
+@import "styleGuide";
 
-
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-   html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-body {
-    font-size: 14px;
-}
-
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-    resize: vertical;
-}
-
-
-/* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
-
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+$blueMain:#6281c9;
+$littleFont:10px;
 
 .container {
-    width: 1170px;
+    width: 1280px;
     margin: 0 auto;
 }
 
-.group {
-    margin-top: 30px;
+/**********left-block*******************/
+
+.left-block{
+    position: fixed;
+    width: 300px;
+    background: url('../img/bg.jpg') no-repeat;
+    height: 100vh;
+    background-size: cover;
 }
 
-.group-title {
-    font-size: 16px;
-    font-weight: bold;
+.logo-link{
+    background: url('../img/logo.png') no-repeat;
+    width: 139px;
+    height: 37px;
+    position: absolute;
+    z-index: 100;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%)
+    
+}
+
+/*******header******/
+
+.header{
+    position: relative;
+    height: 20px;
+}
+
+.header-back{
+    background: url('../img/header-back-str.png') no-repeat;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 17px;
+    height: 16px;
+}
+
+.header-maps{
+    position: absolute;
+    left: 80px;
+}
+
+.header-search-text{
+    position: absolute;
+    left: 180px;
+}
+
+.header-search-icon{
+    background: url('../img/header-search-icon.png') no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 11px;
+    height: 11px;
+    left: 235px;
+    top: 5px;
+}
+
+.header-sign-in{
+    position: absolute;
+    right: 70px;
+    top: 0;
+}
+
+.header-menu-icon{
+    position: absolute;
+    right: 0;
+    top: 3px;
+    background: url('../img/header-menu-icon.png') no-repeat;
+    width: 18px;
+    height: 16px;
+}
+
+/******right block**************/
+
+.right-block{
+    position: relative;
+    left: 300px;
+    padding: 50px 70px;
+    width: 840px;
+}
+
+.main-form {
+    margin-top: 40px;
+}
+
+.group {
+    margin-top: 32px;
 }
 
 .subgroup {
-    margin-top: 10px;
+    margin-top: 17px;
 }
 
-.subgroup-input {
-    border: 1px solid #cccccc;
-    padding: 5px 10px;
-}
-
-.subgroup-select {
-    border: 1px solid #cccccc;
-    padding: 5px 10px;
-}
 
 .subgroup {
     float: left;
     margin-left: 30px;
+}
+
+.square-subgroup{
+    margin-top: 28px;
 }
 
 .subgroup:first-child {
@@ -162,7 +135,8 @@ textarea {
     position: absolute;
     background: #fff;
     border: 1px solid #cccccc;
-    width: 100%;
+    width: 165px;
+    z-index: 10;
 }
 
 .state-input-window-list {
@@ -177,31 +151,174 @@ textarea {
 }
 
 
+.input-margin-left{
+    margin-left: 10px;
+}
+
+.state-input{
+    width: 145px;
+}
+
+.input-zip{
+    @extend .input-margin-left;
+    width: 105px;
+}
+
+.input-county{
+    @extend .input-margin-left;
+    width: 105px;
+}
+
+.input-city{
+    @extend .input-margin-left;
+    width: 125px;
+}
+
+.input-street{
+    @extend .input-margin-left;
+    width: 170px;
+}
+
+.input-streetnum{
+    @extend .input-margin-left;
+    width: 135px;
+}
+
+.hr{
+    background: #c6c6c6;
+    width: 100%;
+    height: 2px;
+    margin-top: 30px;
+}
+
+.description-header-sub{   
+    background: url('../img/description-icon.png') no-repeat;
+    padding: 0 0 0 25px;
+    line-height: 1;
+}
+
+.subgroup-title-left{
+    display: inline-block;
+}
+
+.select-margin-left{
+    margin-left: 10px;
+}
+
+/***************main attrs ***************/
+
+.main-attr-group{
+    float: left;
+}
+
+.main-attr-sub{
+    background: url("../img/main-attr-icon.png") no-repeat;
+    padding: 0 0 0 25px;
+    line-height: 1;
+    height: 16px;
+}
+
+
+.subgroup-element{
+    margin-top :10px;
+}
+
+.first-subgroup-element{
+    margin-top :15px;
+}
+
+.main-attr-subgroup-title{
+    margin-top: 20px;
+}
+
+.main-attr-subgroup{
+    margin-left: 55px;
+}
+
+/************housing type ******************/
+.housing-attr-sub{
+    background: url("../img/housing-icon.png") no-repeat;
+    padding: 0 0 0 25px;
+    line-height: 1;
+    height: 16px;
+}
+
+.housing-group{
+    float: left;
+    margin-left: 80px;
+}
+
+.first-subgroup-element-checkbox{
+    margin-top : 22px;
+}
+
+/********parking ******/
+.parking-group{
+    float: left;
+    margin-left: 80px;
+}
+
+.parking-sub{
+    background: url("../img/parking-icon.png") no-repeat;
+    padding: 0 0 0 25px;
+    line-height: 1;
+    height: 16px;
+}
+
+/*******laundry*************/
+
+.laundry-sub{
+    background: url("../img/laundry-icon.png") no-repeat;
+    padding: 0 0 0 25px;
+    line-height: 1;
+    height: 17px;
+    float: left;
+}
+
+.subgroup-element-laundry{
+    float:left;
+    margin-left:25px;
+}
+
+.laundry-select{
+    margin-top: -10px;
+    width: 258px;
+}
+
+/******buttons ********/
+.get-info-button{
+    margin-left:20px;
+}
+
 /*************** range slider ***************************/
 
 .square-range-container {
-    width: 300px;
+    width: 410px;
     margin-left: 30px;
+    display: inline-block;
 }
 
 .square-range-container .range {
-    height: 6px;
-    background-color: #AEAEAE;
+    height: 4px;
+    background-color: #ececec;
     position: relative;
+    @include border-radius(2px);
 }
 
 .square-range-container .range_inner {
     height: inherit;
-    background-color: #FD2016;
+    background-color:$blueMain;
+    @include border-radius(2px);
+    
 }
 
 .square-range-container .range_btn {
-    width: 9px;
+    width: 1px;
     height: 18px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    //box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
     position: absolute;
     top: -7px;
-    background-color: #fff;
+    //background-color: #fff;
     cursor: pointer;
     margin: 0;
     padding: 0;
@@ -210,10 +327,10 @@ textarea {
 
 .square-range-container span.range_btn_value {
     position: absolute;
-    top: -30px;
-    font-size: 14px;
-    border: 1px solid #888;
-    padding: 2px 4px;
+    top: -32px;
+    font-size: 10px;
+    //border: 1px solid #888;
+    padding: 4px 2px;
     border-radius: 3px;
     left: -20px;
     background: #fff;
@@ -225,8 +342,8 @@ textarea {
     content: " ";
     width: 0;
     height: 0;
-    border: 5px solid rgba(255, 255, 255, 0);
-    border-top-color: #888;
+    border: 4px solid rgba(255, 255, 255, 0);
+    border-top-color:$blueMain;
     position: absolute;
     bottom: -11px;
     left: 50%;
@@ -237,8 +354,8 @@ textarea {
     content: " ";
     width: 0;
     height: 0;
-    border: 5px solid rgba(255, 255, 255, 0);
-    border-top-color: #fff;
+    border: 4px solid rgba(255, 255, 255, 0);
+    border-top-color:$blueMain;   
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -251,11 +368,11 @@ textarea {
 }
 
 .square-range-container .range_btn[data-type=min-btn] {
-    left: -9px;
+    left: 0px;
 }
 
 .square-range-container .range_btn[data-type=max-btn] {
-    right: -9px;
+    right: 0px;
 }
 
 .square-range-container .values {
@@ -277,174 +394,4 @@ textarea {
 }
 
 
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden {
-    display: none !important;
-}
-
-
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
-
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-    visibility: hidden;
-}
-
-.no-margin-left {
-    margin-left: 0;
-}
-
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-    *,
-    *:before,
-    *:after,
-    *:first-letter,
-    *:first-line {
-        background: transparent !important;
-        color: #000 !important;
-        /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
-    thead {
-        display: table-header-group;
-    }
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-    img {
-        max-width: 100% !important;
-    }
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-}
+@import "helpers";

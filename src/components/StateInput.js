@@ -82,7 +82,7 @@ class StateInput extends Component {
 	render() {
 		return (
 			<span>
-				<input type="text" className="subgroup-input state-input" name="State" onChange={this.handleKeyUp}/>
+				<input type="text" className="input state-input" name="State" onChange={this.handleKeyUp} placeholder="State" autoComplete="off"/>
 				<span className="state-input-window"></span>
 			</span>
 		);
