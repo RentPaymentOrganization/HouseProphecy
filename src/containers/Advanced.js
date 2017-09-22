@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import Form from '../components/Form';
+import Form from '../containers/FormAdvanced';
 import PriceConatiner from "../components/priceContainer"
 import  InfoContainer from "../components/infoContainer"
 import {connect} from "react-redux";
 import* as actionsApp from "../actions/index";
 import Header from "../components/Header";
+import LeftBlock from "../components/LeftBlock";
 
-class Wrap extends Component {
+class Advanced extends Component {
     render() {	   
         const onGetPrice=this.props.onGetPrice;   	
         const onGetInfo=this.props.onGetInfo;   	
         const {info, price, fetchingPrice,fetchingInfo} = this.props;           
 		return (
             <div className="container clearfix">			
-                <div className="left-block">
-                    <a href="#" className="logo-link"></a>
-                </div>
+                <LeftBlock className="left-block left-block-advanced" />
                 <div className="right-block">
                     <Header/>
                     <Form onGetPrice={onGetPrice} onGetInfo={onGetInfo} info={info}/>
@@ -52,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
 
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Wrap)
+export default connect(mapStateToProps,mapDispatchToProps)(Advanced)

@@ -469,3 +469,102 @@ input, textarea,select,option{
     color: #747474;
     font-family:'Montserrat', arial;
 }
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+/**********left-block*******************/
+
+.left-block{
+  position: fixed;
+  width: 300px;
+  height: 100vh;
+  background-size: cover;
+  
+}
+
+.logo-link{
+  background: url('../img/logo.png') no-repeat;
+  width: 139px;
+  height: 37px;
+  position: absolute;
+  z-index: 100;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%)
+  
+}
+
+/*******header******/
+
+.header{
+  position: relative;
+  height: 20px;
+}
+
+.header-back{
+  background: url('../img/header-back-str.png') no-repeat;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 17px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.header-maps{
+  position: absolute;
+  left: 80px;
+}
+
+.header-maps-search{
+  position: absolute;
+  left: 0px;
+}
+
+.header-search{
+  position: absolute;
+  left: 180px;
+  top: 0;
+}
+
+.header-search-index{
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+
+
+.header-search-icon{
+  background: url('../img/header-search-icon.png') no-repeat;
+  display: inline-block;
+  margin-left: 5px;
+  width: 11px;
+  height: 11px; 
+}
+
+.header-sign-in{
+  position: absolute;
+  right: 70px;
+  top: 0;
+}
+
+.header-menu-icon{
+  position: absolute;
+  right: 0;
+  top: 3px;
+  background: url('../img/header-menu-icon.png') no-repeat;
+  width: 18px;
+  height: 16px;
+}
+
+/******right block**************/
+
+.right-block{
+  position: relative;
+  left: 300px;
+  padding: 50px 70px;
+  width: 840px;
+}
