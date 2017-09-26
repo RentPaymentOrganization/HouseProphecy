@@ -1,0 +1,153 @@
+.menu-info{
+    margin-top: 30px;
+    background: #cccccc;
+}
+
+.menu-info-link{
+    color: #747474;
+    padding:13px 33px;
+    position: relative;
+    font-size: 12px;
+    text-decoration:none;
+    display: inline-block;
+}
+
+.menu-info-link.active{
+    color: #fff;
+}
+
+.menu-info-link.active:after{
+    content: '';
+    border: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    bottom: 0px;
+    width: 0;
+}
+
+.info-contetnt{
+    background: #fcfcfc;
+    padding: 20px 35px;
+}
+
+.info-contetnt-address-data-block-title{
+    font-size: 12px;
+}
+
+.info-contetnt-address-data-block-value{
+    color: #6281c9;
+}
+
+.info-contetnt-map, .info-contetnt-address-block, .info-contetnt-address-data-block{
+    float:left;
+}
+
+.info-contetnt-address-block{
+    margin: 0 0 0 30px;
+}
+
+.info-contetnt-address-data-blocks{
+    margin: 20px 0 0 0;
+}
+
+.info-contetnt-address-data-block{
+    margin: 0 0 0 40px
+}
+
+/*****props block ****/
+.info-contetnt-props-container{
+    margin-top: 35px;
+}
+
+.info-contetnt-props-block{
+    font-size: 12px;
+    line-height: 1;
+    height: 25px;
+    padding: 0 0 0 30px;
+    float: left;
+    margin-left: 40px;
+}
+
+.info-contetnt-props-block-beds, .info-contetnt-props-block-baths{
+    line-height: 1.8;
+}
+
+.info-contetnt-props-block:first-child{
+    margin-left: 0px;
+}
+
+.info-contetnt-props-block-type{
+    background: url('../img/icons/info-prop-type-icon.png') no-repeat;
+}
+
+.info-contetnt-props-block-year{
+    background: url('../img/icons/info-prop-year-built-icon.png') no-repeat;
+}
+
+.info-contetnt-props-block-square{
+    background: url('../img/icons/info-prop-square-icon.png') no-repeat;
+}
+
+.info-contetnt-props-block-beds{
+    background: url('../img/icons/info-prop-beds-icon.png') no-repeat;
+}
+
+.info-contetnt-props-block-baths{
+    background: url('../img/icons/info-prop-baths-icon.png') no-repeat;
+}
+
+.info-contetnt-props-block-radius{
+    background: url('../img/icons/info-prop-search-icon.png') no-repeat;
+}
+
+/***socials***/
+.info-contetnt-socials{
+    margin-top: 35px;
+}
+
+.info-contetnt-socials-block{
+    margin-top: 35px;
+}
+
+.info-contetnt-socials-title{
+    color:$blueMain;
+}
+
+.info-contetnt-socials-block{
+    float: left;
+    margin-left: 40px;
+    width: 160px;
+}
+
+.info-contetnt-socials-block:first-child{
+    margin-left: 0;
+}
+
+.info-contetnt-socials-block-title{
+    padding: 0 0 0 30px;
+ }
+
+.info-contetnt-socials-block-title-schools{
+    background: url('../img/icons/socials-school-icon.png') no-repeat;
+}
+
+.info-contetnt-socials-block-title-markets{
+    background: url('../img/icons/socials-markets-icon.png') no-repeat;
+}
+
+.info-contetnt-socials-block-title-hospital{
+    background: url('../img/icons/socials-hospital-icon.png') no-repeat;
+}
+
+.info-contetnt-socials-block-title-metro{
+    background: url('../img/icons/socials-metro-icon.png') no-repeat;
+}
+
+.info-contetnt-socials-block-list{
+    margin-top: 20px;
+    line-height: 2;
+    font-size: 12px;
+}
+

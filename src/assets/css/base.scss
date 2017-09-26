@@ -447,6 +447,12 @@ template {
   display: none;
 }
 
+ul{
+  padding: 0;
+  margin:0;
+  list-style: none;
+}
+
 
 @import url(http://allfont.ru/allfont.css?fonts=montserrat);
 
@@ -538,7 +544,7 @@ input, textarea,select,option{
 
 
 .header-search-icon{
-  background: url('../img/header-search-icon.png') no-repeat;
+  background: url('../img/icons/header-search-icon.png') no-repeat;
   display: inline-block;
   margin-left: 5px;
   width: 11px;
@@ -555,7 +561,7 @@ input, textarea,select,option{
   position: absolute;
   right: 0;
   top: 3px;
-  background: url('../img/header-menu-icon.png') no-repeat;
+  background: url('../img/icons/header-menu-icon.png') no-repeat;
   width: 18px;
   height: 16px;
 }
