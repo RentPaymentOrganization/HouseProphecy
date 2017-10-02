@@ -18,6 +18,6 @@
 <![endif]-->
     <div id="root"></div>       
  
-<script type="text/javascript" src="dist/app.js"></script></body>
+<script type="text/javascript" src="/dist/app.js"></script></body>
 
 </html>
