@@ -9,5 +9,7 @@ const constatnts={
     "AJAX_URL":window.location.href
 };
 
+
+
 export default constatnts;
 

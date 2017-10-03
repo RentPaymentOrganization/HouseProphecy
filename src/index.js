@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import App from './containers/App';
-import { AppContainer } from 'react-hot-loader/developmentOnly';
+import { AppContainer } from 'react-hot-loader';
 import './assets/css/main.scss';
 
 

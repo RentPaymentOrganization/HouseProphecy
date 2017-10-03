@@ -8,7 +8,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+    <link href="dist/css/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,6 +18,6 @@
 <![endif]-->
     <div id="root"></div>       
  
-<script type="text/javascript" src="/dist/app.js"></script></body>
+<script type="text/javascript" src="dist/app.js"></script></body>
 
 </html>
