@@ -93,13 +93,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\css\main.css" />
     <Content Include="src\index.js" />
-    <Content Include="src\js\postAjaxJSON.js" />
-    <Content Include="src\js\rangeSlider.js" />
-    <Content Include="src\js\selectAll.js" />
-    <Content Include="src\js\serialize.js" />
-    <Content Include="src\js\states.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
