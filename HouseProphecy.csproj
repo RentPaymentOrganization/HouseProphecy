@@ -73,8 +73,40 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dist\app.js" />
     <Content Include="dist\index.html" />
+    <Content Include="dist\static\css\app.css" />
+    <Content Include="dist\static\img\bg-index.edba83f.jpg" />
+    <Content Include="dist\static\img\bg.1e5090e.jpg" />
+    <Content Include="dist\static\img\description-icon.43aebf6.png" />
+    <Content Include="dist\static\img\header-back-str.09b2a87.png" />
+    <Content Include="dist\static\img\header-menu-icon.d5bc674.png" />
+    <Content Include="dist\static\img\header-search-icon.9834783.png" />
+    <Content Include="dist\static\img\housing-icon.24f716a.png" />
+    <Content Include="dist\static\img\info-prop-baths-icon.da2ba18.png" />
+    <Content Include="dist\static\img\info-prop-beds-icon.51a06c0.png" />
+    <Content Include="dist\static\img\info-prop-search-icon.38eaf74.png" />
+    <Content Include="dist\static\img\info-prop-square-icon.6e4460c.png" />
+    <Content Include="dist\static\img\info-prop-type-icon.9be2f7b.png" />
+    <Content Include="dist\static\img\info-prop-year-built-icon.6915189.png" />
+    <Content Include="dist\static\img\laundry-icon.91eaa25.png" />
+    <Content Include="dist\static\img\logo.ea8fcf6.png" />
+    <Content Include="dist\static\img\main-attr-icon.29d2b5a.png" />
+    <Content Include="dist\static\img\map.93e2a7c.jpg" />
+    <Content Include="dist\static\img\parking-icon.64a15c7.png" />
+    <Content Include="dist\static\img\rec-str-down-icon.da1d739.png" />
+    <Content Include="dist\static\img\rec-str-up-icon.5b49d47.png" />
+    <Content Include="dist\static\img\recommendation-furniture-icon.ea1c798.png" />
+    <Content Include="dist\static\img\recommendation-parking-icon.14926ae.png" />
+    <Content Include="dist\static\img\recommendation-pets-icon.e376e50.png" />
+    <Content Include="dist\static\img\recommendation-tech-icon.e62a0a7.png" />
+    <Content Include="dist\static\img\recommendation-wall-color-icon.eca0114.png" />
+    <Content Include="dist\static\img\socials-hospital-icon.8e2c4ec.png" />
+    <Content Include="dist\static\img\socials-markets-icon.0b434c2.png" />
+    <Content Include="dist\static\img\socials-metro-icon.9e759b1.png" />
+    <Content Include="dist\static\img\socials-school-icon.7bc2ed2.png" />
+    <Content Include="dist\static\js\app.js" />
+    <Content Include="dist\static\js\manifest.js" />
+    <Content Include="dist\static\js\vendor.js" />
     <Content Include="HouseProphecy.aspx" />
     <Content Include="webpack.config.js" />
     <None Include=".gitignore" />
@@ -85,6 +117,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="package.json" />
+    <Content Include="dist\static\js\app.js.map" />
+    <Content Include="dist\static\js\manifest.js.map" />
+    <Content Include="dist\static\js\vendor.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -21,6 +21,8 @@
 <script>
 import SearchStateInput from './SearchStateInput';
 import serialize from '../utils/serialize';
+import {AJAX_URL} from '../utils/constants';
+
   export default {
      components:{
         'search-input':SearchStateInput,
@@ -31,22 +33,27 @@ import serialize from '../utils/serialize';
             let mainForm = document.getElementById('main-form');
             let serializedMainForm=serialize(mainForm);
             serializedMainForm.Action="getPrice";
-            let data = JSON.stringify(serializedMainForm);           
-            this.$emit('getPrice');          
+            let data = JSON.stringify(serializedMainForm);  
+             this.$http.post(AJAX_URL, data,{headers:{'Content-Type': 'application/x-www-form-urlencoded','X-Requested-With': 'XMLHttpRequest'}}).then(response => {
+                this.showInfo=true;              
+                this.$emit('getPrice',response.data);   
+            }, response => {
+                console.log("error price request");
+            });                        
+                 
          },
          getInfo:function(){
             let mainForm = document.getElementById('main-form');
             let serializedMainForm=serialize(mainForm);
             serializedMainForm.Action="getInfo";
             let data = JSON.stringify(serializedMainForm);
-            this.$http.post('http://localhost:57861/HouseProphecy.aspx', data).then(response => {
-                this.showInfo=true;
-                console.log(response.body);
+            this.$http.post(AJAX_URL, data,{headers:{'Content-Type': 'application/x-www-form-urlencoded','X-Requested-With': 'XMLHttpRequest'}}).then(response => {
+                this.showInfo=true;              
+                this.$emit('getInfo');   
             }, response => {
-                console.log("error");
-            });
+                console.log("error info request");
+            });    
            
-            
          }
      },
      data() {

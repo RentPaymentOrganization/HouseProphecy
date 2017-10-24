@@ -20,3 +20,14 @@ D:\projects\HouseProphecyReact\bin\System.Net.Http.dll
 D:\projects\HouseProphecyReact\bin\System.Net.Http.Formatting.dll
 D:\projects\HouseProphecyReact\bin\System.Net.Http.WebRequest.dll
 D:\projects\HouseProphecyReact\bin\Newtonsoft.Json.xml
+D:\projects\HouseProphecyVue\bin\WebForecast.dll.config
+D:\projects\HouseProphecyVue\bin\WebForecast.dll
+D:\projects\HouseProphecyVue\bin\WebForecast.pdb
+D:\projects\HouseProphecyVue\bin\Newtonsoft.Json.dll
+D:\projects\HouseProphecyVue\bin\System.Net.Http.dll
+D:\projects\HouseProphecyVue\bin\System.Net.Http.Formatting.dll
+D:\projects\HouseProphecyVue\bin\System.Net.Http.WebRequest.dll
+D:\projects\HouseProphecyVue\bin\Newtonsoft.Json.xml
+D:\projects\HouseProphecyVue\obj\Debug\HouseProphecy.csprojResolveAssemblyReference.cache
+D:\projects\HouseProphecyVue\obj\Debug\WebForecast.dll
+D:\projects\HouseProphecyVue\obj\Debug\WebForecast.pdb

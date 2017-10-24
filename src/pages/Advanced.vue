@@ -3,7 +3,7 @@
     <left-block class="left-block-advanced"></left-block>
     <div class="right-block">
       <header-app></header-app>
-      <main-form class="main-form" v-on:getPrice="getPriceAdvanced">
+      <main-form class="main-form" v-on:getPrice="getPriceAdvanced" v-on:getInfo="getInfoAdvanced">
         <div slot="form-others-elements">
           <div class="hr"></div>
           <!-- description     -->
@@ -336,6 +336,7 @@
         </div>
       </main-form>   
       <info v-if="showInfo"></info>   
+      <price v-bind:price="priceValue" v-if="showPrice"></price>   
     </div>
   </div>
 </template>
@@ -347,6 +348,7 @@
   import vueSlider from 'vue-slider-component';
   import checkBoxesList from '../components/checkBoxesSelectAll.vue';
   import Info from '../components/Info.vue';
+  import Price from '../components/Price.vue';
   
   export default {
     
@@ -377,7 +379,8 @@
           }
         },
         showInfo:false,
-        showPrice:false
+        showPrice:false,
+        priceValue:''
       }
 
 
@@ -389,13 +392,21 @@
       'main-form': Mainform,
       vueSlider,
       'checkboxes-list': checkBoxesList,
-      'info':Info
-      
+      'info':Info,
+      'price':Price      
      
     },
     methods: {
-      getPriceAdvanced: function () {
-        
+      getPriceAdvanced: function (priceValue) {
+        this.showInfo=false;
+        this.showPrice=true;
+        this.priceValue=priceValue;
+        console.log(priceValue);
+      },
+
+      getInfoAdvanced:function(){        
+        this.showInfo=true;
+        this.showPrice=false;
       }
     },
  
