@@ -31,3 +31,14 @@ D:\projects\HouseProphecyVue\bin\Newtonsoft.Json.xml
 D:\projects\HouseProphecyVue\obj\Debug\HouseProphecy.csprojResolveAssemblyReference.cache
 D:\projects\HouseProphecyVue\obj\Debug\WebForecast.dll
 D:\projects\HouseProphecyVue\obj\Debug\WebForecast.pdb
+D:\projects\HouseProphecyVueTest\bin\WebForecast.dll.config
+D:\projects\HouseProphecyVueTest\bin\WebForecast.dll
+D:\projects\HouseProphecyVueTest\bin\WebForecast.pdb
+D:\projects\HouseProphecyVueTest\bin\Newtonsoft.Json.dll
+D:\projects\HouseProphecyVueTest\bin\System.Net.Http.dll
+D:\projects\HouseProphecyVueTest\bin\System.Net.Http.Formatting.dll
+D:\projects\HouseProphecyVueTest\bin\System.Net.Http.WebRequest.dll
+D:\projects\HouseProphecyVueTest\bin\Newtonsoft.Json.xml
+D:\projects\HouseProphecyVueTest\obj\Debug\HouseProphecy.csprojResolveAssemblyReference.cache
+D:\projects\HouseProphecyVueTest\obj\Debug\WebForecast.dll
+D:\projects\HouseProphecyVueTest\obj\Debug\WebForecast.pdb
