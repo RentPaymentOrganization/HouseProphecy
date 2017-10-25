@@ -97,9 +97,10 @@ namespace HouseProphecy
                         }
                     }
                     else if (json.Action == "getInfo")
-                    {                       
-                       str = DataTableToJSON(DataProvider.Instance.GetListInfo(json.State, json.County, json.City, json.Street, json.StreetNumber, json.ZipCode).Tables[0]);
+                    {
+                        str = DataTableToJSON(DataProvider.Instance.GetListInfo(json.State, json.County, json.City, json.Street, json.StreetNumber, json.ZipCode).Tables[0]);
                     }
+                   
                     Response.Write(str);
                     Response.End();
                 }
@@ -130,6 +131,14 @@ namespace HouseProphecy
             searchData.BedRooms = json.BedRooms;
             searchData.BathRooms = json.BathRooms;
             NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
+            if (json.SquareFrom == null)
+            {
+                json.SquareFrom = "100";
+            }
+            if (json.SquareTo == null)
+            {
+                json.SquareTo = "10000";
+            }
             searchData.Square = ((double.Parse(json.SquareFrom, formatInfo) + double.Parse(json.SquareTo, formatInfo)) / 2).ToString();
             searchData.CatsOk = ChoiseRadioButton(json.CatsOk);
             searchData.DogsOk = ChoiseRadioButton(json.DogsOk);

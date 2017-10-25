@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/Index.vue'
 import Advanced from '@/pages/Advanced.vue'
-
+import NotFoundComponent from '@/pages/NotFoundComponent.vue'
 Vue.use(Router)
 
 export default new Router({
- // mode:'history',
+  mode:'history',
   routes: [
     {
       path: '/',
@@ -18,6 +18,10 @@ export default new Router({
       name: 'Advanced',
       component: Advanced
     },
+    { 
+      path: '*',
+      component: NotFoundComponent
+    }
 
   ]
 })

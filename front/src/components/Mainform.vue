@@ -53,6 +53,7 @@ import {AJAX_URL} from '../utils/constants';
             }, response => {
                 console.log("error info request");
             });    
+             
            
          }
      },
