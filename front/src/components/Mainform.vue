@@ -14,52 +14,72 @@
             <button class="get-info-button button" @click.prevent="getInfo">Get info</button>
         </div>        
     </div>    
-   
+   <loader v-if="loading"></loader>
   </form>
+  
 </template>
 
 <script>
 import SearchStateInput from './SearchStateInput';
+import loader from './Loader';
 import serialize from '../utils/serialize';
 import {AJAX_URL} from '../utils/constants';
 
   export default {
      components:{
         'search-input':SearchStateInput,
+        loader
       
      },
      methods:{
-         getPrice:function(){
-            let mainForm = document.getElementById('main-form');
-            let serializedMainForm=serialize(mainForm);
-            serializedMainForm.Action="getPrice";
-            let data = JSON.stringify(serializedMainForm);  
-             this.$http.post(AJAX_URL, data,{headers:{'Content-Type': 'application/x-www-form-urlencoded','X-Requested-With': 'XMLHttpRequest'}}).then(response => {
-                this.showInfo=true;              
-                this.$emit('getPrice',response.data);   
-            }, response => {
-                console.log("error price request");
-            });                        
-                 
-         },
-         getInfo:function(){
-            let mainForm = document.getElementById('main-form');
-            let serializedMainForm=serialize(mainForm);
-            serializedMainForm.Action="getInfo";
-            let data = JSON.stringify(serializedMainForm);
-            this.$http.post(AJAX_URL, data,{headers:{'Content-Type': 'application/x-www-form-urlencoded','X-Requested-With': 'XMLHttpRequest'}}).then(response => {
-                this.showInfo=true;              
-                this.$emit('getInfo');   
-            }, response => {
-                console.log("error info request");
-            });    
+         getPrice: function () {
+             this.loading = true;
+             let mainForm = document.getElementById('main-form');
+             let serializedMainForm = serialize(mainForm);
+             serializedMainForm.Action = "getPrice";
+             let data = JSON.stringify(serializedMainForm);
+             this.$http.post(AJAX_URL, data, {
+               headers: {
+                 'Content-Type': 'application/x-www-form-urlencoded',
+                 'X-Requested-With': 'XMLHttpRequest'
+               }
+             }).then(response => {
+               this.showInfo = true;
+               this.$emit('getPrice', response.data);
+               this.loading = false;
+             }, response => {
+               console.log("error price request");
+               this.loading = false;
+             });
+
+           },
+           getInfo: function () {
+             this.loading = true;
+             let mainForm = document.getElementById('main-form');
+             let serializedMainForm = serialize(mainForm);
+             serializedMainForm.Action = "getInfo";
+             let data = JSON.stringify(serializedMainForm);
+             this.$http.post(AJAX_URL, data, {
+               headers: {
+                 'Content-Type': 'application/x-www-form-urlencoded',
+                 'X-Requested-With': 'XMLHttpRequest'
+               }
+             }).then(response => {
+               this.showInfo = true;
+               this.$emit('getInfo');
+               this.loading = false;
+             }, response => {
+               console.log("error info request");
+               this.loading = false;
+             });
+
              
            
          }
      },
      data() {
          return {
-             
+             loading:false
          }
      },
 

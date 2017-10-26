@@ -9,6 +9,11 @@ export default new Router({
   mode:'history',
   routes: [
     {
+      path: '/index.html',
+      name: 'Index',
+      component: Index
+    },
+    {
       path: '/',
       name: 'Index',
       component: Index

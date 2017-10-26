@@ -5,6 +5,7 @@
       <a href="#" :class="{active:details}" class="menu-info-link" @click.prevent="showProperty">Property details</a>
       <a href="#" :class="{active:recommendation}" class="menu-info-link" @click.prevent="showRecommendation">Recommendation</a>
     </div>
+    
     <div :class="{active:details}" class="info-contetnt">
       <div class="info-contetnt-container clearfix">
         <div class="info-contetnt-map">

@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="static\css\app.css" />
+    <Content Include="static\img\404.815b476.jpg" />
     <Content Include="static\img\bg-index.edba83f.jpg" />
     <Content Include="static\img\bg.1e5090e.jpg" />
     <Content Include="static\img\description-icon.43aebf6.png" />
