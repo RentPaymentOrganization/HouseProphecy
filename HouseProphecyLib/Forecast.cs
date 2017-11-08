@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HouseProphecyLib;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -26,8 +27,11 @@ namespace HouseProphecy.Components
                             "input1",
                             new StringTable()
                             {
-                                ColumnNames = new string[] {"zipCode", "price", "bedRooms", "bathRooms", "square", "cats.ok", "dogs.ok",
-                                    "furnished", "no.smoking", "wheelchair.accessible", "housing.type", "w.d", "laundry", "parking"},
+                                ColumnNames = new string[] {Constants.ForecastFields.ZipCode, Constants.ForecastFields.Price, Constants.ForecastFields.BedRooms,
+                                                            Constants.ForecastFields.BathRooms, Constants.ForecastFields.Square, Constants.ForecastFields.CatsOk,
+                                                            Constants.ForecastFields.DogsOk, Constants.ForecastFields.Furnished, Constants.ForecastFields.NoSmokinkg,
+                                                            Constants.ForecastFields.WheelchairAccessible, Constants.ForecastFields.HousingType, Constants.ForecastFields.WD,
+                                                            Constants.ForecastFields.Laundry, Constants.ForecastFields.Parking},
                                 Values = new string[,] { { searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
                                         searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
                                         searchData.WheelchairAccessible, searchData.HousingType, searchData.Laundry, searchData.LaundrySeparation, searchData.Parking}, }
@@ -37,10 +41,10 @@ namespace HouseProphecy.Components
                     GlobalParameters = new Dictionary<string, string>()
                     {
                     }
-                };
-                const string apiKey = "RcwZKZkxw8o9/wYjBLqHktYKus2Q0mC1dJLUlst+hvvm5KiLOeiRd9ua/TWIbxaOoel7ZpP6/RqfHW/OGVdlKQ==";
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/96b09fabd8cc4ebf96a2b7328937fec4/services/d601872b33484176a76e748ed24c0c90/execute?api-version=2.0&details=true");
+                };                
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HPResources.AzureSearchApiKey);
+                client.BaseAddress = new Uri(HPResources.Uri);
+                //Assembly System.Net.Http.Formatting for PostAsJsonAsync
                 var response = await client.PostAsJsonAsync("", scoreRequest);
                 if (response.IsSuccessStatusCode)
                 {

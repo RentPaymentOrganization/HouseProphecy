@@ -57,17 +57,7 @@ namespace RentPayment.DataProviders
             }
         }
 
-        public string AttachMDFConnectionString()
-        {
-            string connectString =
-                "Server=(local);" +
-                "Integrated Security=true";
-            SqlConnectionStringBuilder builder =
-                new SqlConnectionStringBuilder(connectString);
-            builder.AttachDBFilename = @"E:\GitHub\RentPayment\RentPayment\App_Data\RentPayment.mdf";
-            //sqlConnection.Open();
-            return builder.ConnectionString;
-        }
+      
         #endregion
 
         #region Protected Methods

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Script.Serialization;
 using RentPayment.Helpers;
 
-namespace WebForecast.Components
+namespace HouseProphecyLib
 {
     public class JSObjectOperation : SingleTone<JSObjectOperation>
     {

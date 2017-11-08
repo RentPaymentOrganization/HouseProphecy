@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HouseProphecyLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\HouseProphecyLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -85,11 +89,12 @@
     <Content Include="static\js\app.js.map" />
     <Content Include="static\js\manifest.js.map" />
     <Content Include="static\js\vendor.js.map" />
-    <None Include="Web2.Debug.config">
-      <DependentUpon>Web2.config</DependentUpon>
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
     </None>
-    <None Include="Web2.Release.config">
-      <DependentUpon>Web2.config</DependentUpon>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -127,26 +132,28 @@
     <Content Include="static\js\app.js" />
     <Content Include="static\js\manifest.js" />
     <Content Include="static\js\vendor.js" />
-    <Content Include="Web2.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Constants.cs" />
-    <Compile Include="Components\DataProvider.cs" />
-    <Compile Include="Components\Forecast.cs" />
-    <Compile Include="Components\ForecastJSON.cs" />
-    <Compile Include="Components\JSObjectOperation.cs" />
-    <Compile Include="Components\ModelData.cs" />
-    <Compile Include="Components\SearchData.cs" />
-    <Compile Include="Components\SingleTone.cs" />
     <Compile Include="HouseProphecy.aspx.cs">
       <DependentUpon>HouseProphecy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="HPResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HPResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="HPResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HPResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
