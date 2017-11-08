@@ -18,11 +18,11 @@ namespace HouseProphecy
                     //houseProphecyLib.ConnectionString = DataProvider.Instance.ConnectionString;
                     string str = "";
                     HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]));
-                    if (houseProphecyLib.json.Action == "getInfo") //getPrice
+                    if (houseProphecyLib.json.Action == "getPrice")
                     {
                         str = houseProphecyLib.prediction();
                     }
-                    else if (houseProphecyLib.json.Action == "getPrice") //getInfo
+                    else if (houseProphecyLib.json.Action == "getInfo")
                     {
                         str = houseProphecyLib.DataTableToJSON(DataProvider.Instance.GetListInfo(houseProphecyLib.json.State, houseProphecyLib.json.County,
                                               houseProphecyLib.json.City, houseProphecyLib.json.Street, houseProphecyLib.json.StreetNumber, houseProphecyLib.json.ZipCode).Tables[0]);
