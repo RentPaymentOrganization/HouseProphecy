@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HouseProphecyLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\HouseProphecyLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -73,28 +77,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConnectionStrings.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="HouseProphecy.aspx" />
     <Content Include="index.html" />
-    <Content Include="webpack-build\utils.js" />
-    <Content Include="webpack-build\webpack.base.config.js" />
-    <Content Include="webpack-build\webpack.dev.config.js" />
-    <Content Include="webpack-build\webpack.prod.config.js" />
-    <Content Include="webpack.config.js" />
     <None Include=".gitignore" />
-    <Content Include="dist\css\main.css" />
-    <Content Include="dist\index.html" />
-    <Content Include="dist\js\app.js" />
-    <Content Include="dist\js\vendor.js" />
-    <Content Include="myrange.html" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="dist\css\main.css.map" />
-    <Content Include="dist\js\app.js.map" />
-    <Content Include="dist\js\vendor.js.map" />
-    <Content Include="package.json" />
+    <Content Include="ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="static\js\app.js.map" />
+    <Content Include="static\js\manifest.js.map" />
+    <Content Include="static\js\vendor.js.map" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -103,34 +98,62 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\css\main.css" />
-    <Content Include="src\index.js" />
-    <Content Include="src\js\postAjaxJSON.js" />
-    <Content Include="src\js\rangeSlider.js" />
-    <Content Include="src\js\selectAll.js" />
-    <Content Include="src\js\serialize.js" />
-    <Content Include="src\js\states.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="dist\HouseProphecy.aspx" />
+    <Content Include="static\css\app.css" />
+    <Content Include="static\img\404.815b476.jpg" />
+    <Content Include="static\img\bg-index.edba83f.jpg" />
+    <Content Include="static\img\bg.1e5090e.jpg" />
+    <Content Include="static\img\description-icon.43aebf6.png" />
+    <Content Include="static\img\header-back-str.09b2a87.png" />
+    <Content Include="static\img\header-menu-icon.d5bc674.png" />
+    <Content Include="static\img\header-search-icon.9834783.png" />
+    <Content Include="static\img\housing-icon.24f716a.png" />
+    <Content Include="static\img\info-prop-baths-icon.da2ba18.png" />
+    <Content Include="static\img\info-prop-beds-icon.51a06c0.png" />
+    <Content Include="static\img\info-prop-search-icon.38eaf74.png" />
+    <Content Include="static\img\info-prop-square-icon.6e4460c.png" />
+    <Content Include="static\img\info-prop-type-icon.9be2f7b.png" />
+    <Content Include="static\img\info-prop-year-built-icon.6915189.png" />
+    <Content Include="static\img\laundry-icon.91eaa25.png" />
+    <Content Include="static\img\logo.ea8fcf6.png" />
+    <Content Include="static\img\main-attr-icon.29d2b5a.png" />
+    <Content Include="static\img\map.93e2a7c.jpg" />
+    <Content Include="static\img\parking-icon.64a15c7.png" />
+    <Content Include="static\img\rec-str-down-icon.da1d739.png" />
+    <Content Include="static\img\rec-str-up-icon.5b49d47.png" />
+    <Content Include="static\img\recommendation-furniture-icon.ea1c798.png" />
+    <Content Include="static\img\recommendation-parking-icon.14926ae.png" />
+    <Content Include="static\img\recommendation-pets-icon.e376e50.png" />
+    <Content Include="static\img\recommendation-tech-icon.e62a0a7.png" />
+    <Content Include="static\img\recommendation-wall-color-icon.eca0114.png" />
+    <Content Include="static\img\socials-hospital-icon.8e2c4ec.png" />
+    <Content Include="static\img\socials-markets-icon.0b434c2.png" />
+    <Content Include="static\img\socials-metro-icon.9e759b1.png" />
+    <Content Include="static\img\socials-school-icon.7bc2ed2.png" />
+    <Content Include="static\js\app.js" />
+    <Content Include="static\js\manifest.js" />
+    <Content Include="static\js\vendor.js" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Constants.cs" />
-    <Compile Include="Components\DataProvider.cs" />
-    <Compile Include="Components\Forecast.cs" />
-    <Compile Include="Components\ForecastJSON.cs" />
-    <Compile Include="Components\JSObjectOperation.cs" />
-    <Compile Include="Components\ModelData.cs" />
-    <Compile Include="Components\SearchData.cs" />
-    <Compile Include="Components\SingleTone.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="dist\HouseProphecy.aspx.cs">
+    <Compile Include="HouseProphecy.aspx.cs">
       <DependentUpon>HouseProphecy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="HPResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HPResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="HPResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HPResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
