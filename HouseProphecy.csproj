@@ -73,6 +73,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="index.html" />
     <Content Include="webpack-build\utils.js" />
     <Content Include="webpack-build\webpack.base.config.js" />
@@ -86,9 +89,6 @@
     <Content Include="dist\js\vendor.js" />
     <Content Include="myrange.html" />
     <Content Include="packages.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="ConnectionStrings.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="dist\css\main.css.map" />
