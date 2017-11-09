@@ -1,4 +1,4 @@
-﻿namespace RentPayment.Helpers
+﻿namespace HouseProphecy.Helpers
 {
     public class SingleTone<T> where T : class, new()
     {

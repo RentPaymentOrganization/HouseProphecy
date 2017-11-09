@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HouseProphecyLib
+namespace HouseProphecy
 {
     public class ForecastJSON
     {

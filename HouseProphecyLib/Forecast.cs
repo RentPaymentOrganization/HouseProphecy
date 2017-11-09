@@ -1,4 +1,4 @@
-﻿using HouseProphecyLib;
+﻿using HouseProphecy;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;

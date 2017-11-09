@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using HouseProphecy.Components;
 using System.Globalization;
-using HouseProphecyLib;
 using System.Data;
 using System.Web.Script.Serialization;
+using HouseProphecy.DataProviders;
 
 namespace HouseProphecy
 {
@@ -13,7 +13,7 @@ namespace HouseProphecy
 
         #region public variables
 
-        public ForecastJSON json;
+        public ForecastJSON Json;
         //public string ConnectionString { get; set; } = string.Empty;
 
         #endregion
@@ -29,7 +29,7 @@ namespace HouseProphecy
 
         public HouseProphecyLib(ForecastJSON json)
         {
-            this.json = json;
+            this.Json = json;
         }
         public string prediction()
         {
@@ -37,7 +37,7 @@ namespace HouseProphecy
             double val = 0;
             int count = 0;
             string str = string.Empty;
-            FillSearchData(json);
+            FillSearchData(Json);
             foreach (var catsOk in searchData.CatsOk)
             {
                 modelData.CatsOk = catsOk;
@@ -123,10 +123,33 @@ namespace HouseProphecy
 
             return serializer.Serialize(list);
         }
+
+        public string GetPropertyInfoList()
+        {
+            string resJSON = string.Empty;
+            try
+            {
+                DataSet resDataSet = DataProvider.Instance.GetPropertyListInfo(Json.State, Json.County,  Json.City, Json.Street, Json.StreetNumber, Json.ZipCode);
+                if(resDataSet.Tables.Count > 0)
+                {
+                    resJSON=DataTableToJSON(resDataSet.Tables[0]);
+                }
+            }
+            catch(Exception ex)
+            {
+                resJSON = ex.Message;
+            }
+            return resJSON;
+        }
+        public void SetConnectionString(string connectionString)
+        {
+            DataProvider.Instance.ConnectionString = connectionString;
+        }
+
         #endregion
 
 
-        #region private methods
+            #region private methods
 
         private void FillSearchData(ForecastJSON json)
         {

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
-using RentPayment.DataProviders;
-using HouseProphecyLib;
+using HouseProphecy;
+using System.Configuration;
+using static WebForecast.Components.Constants;
+using HouseProphecy.Components;
 
 namespace HouseProphecy
 {
@@ -10,22 +12,22 @@ namespace HouseProphecy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]));
             if (!IsPostBack)
             {
                 if (IsAjaxRequest(Request))
                 {
                     //houseProphecyLib.ConnectionString = DataProvider.Instance.ConnectionString;
                     string str = "";
-                    HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]));
-                    if (houseProphecyLib.json.Action == "getPrice")
+                  
+                    if (houseProphecyLib.Json.Action == "getPrice")
                     {
                         str = houseProphecyLib.prediction();
                     }
-                    else if (houseProphecyLib.json.Action == "getInfo")
+                    else if (houseProphecyLib.Json.Action == "getInfo")
                     {
-                        str = houseProphecyLib.DataTableToJSON(DataProvider.Instance.GetListInfo(houseProphecyLib.json.State, houseProphecyLib.json.County,
-                                              houseProphecyLib.json.City, houseProphecyLib.json.Street, houseProphecyLib.json.StreetNumber, houseProphecyLib.json.ZipCode).Tables[0]);
+                        houseProphecyLib.SetConnectionString(ConnectionString());
+                        str = houseProphecyLib.GetPropertyInfoList();
                     }
                     Response.Write(str);
                     Response.End();
@@ -47,5 +49,25 @@ namespace HouseProphecy
             }
             return isCallbackRequest || (request["X-Requested-With"] == "XMLHttpRequest") || (request.Headers["X-Requested-With"] == "XMLHttpRequest");
         }
+
+        #region private methods
+        /// <summary>
+        /// returns default connectionString
+        /// </summary>
+        private string ConnectionString()
+        {   
+               
+            string connectionStringName = ConnectionNames.ForecastAzureConnection;
+            foreach(ConnectionStringSettings connectionStringSettings in ConfigurationManager.ConnectionStrings)
+            {
+                if(string.Equals(connectionStringSettings.Name, connectionStringName))
+                {
+                    return connectionStringSettings.ConnectionString;
+                }
+            }
+            return string.Empty;              
+            
+        }
+        #endregion
     }
 }
