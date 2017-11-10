@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Web.Script.Serialization;
-using RentPayment.Helpers;
 
-namespace HouseProphecyLib
+namespace HouseProphecy.Helpers
 {
     public class JSObjectOperation : SingleTone<JSObjectOperation>
     {

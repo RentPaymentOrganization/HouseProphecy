@@ -134,6 +134,9 @@
     <Content Include="static\js\vendor.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Constants.cs" />
+    <Compile Include="Components\JSObjectOperation.cs" />
+    <Compile Include="Components\SingleTone.cs" />
     <Compile Include="HouseProphecy.aspx.cs">
       <DependentUpon>HouseProphecy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,9 +154,7 @@
       <LastGenOutput>HPResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

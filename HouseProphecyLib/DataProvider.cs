@@ -1,16 +1,14 @@
-﻿using RentPayment.Helpers;
-using System.Configuration;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
-using static HouseProphecy.Components.Constants;
+using HouseProphecy.Components;
 using System;
+using HouseProphecy.Helpers;
 
-namespace RentPayment.DataProviders
+namespace HouseProphecy.DataProviders
 {
     public partial class DataProvider : SingleTone<DataProvider>
     {
-        #region privateMembers
-        private string connectionString = string.Empty;
+        #region privateMembers      
         private SqlConnection sqlConnection = null;
 
         #endregion
@@ -19,24 +17,7 @@ namespace RentPayment.DataProviders
         /// <summary>
         /// returns default connectionString
         /// </summary>
-        public string ConnectionString
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    string connectionStringName = ConnectionNames.ForecastAzureConnection;
-                    foreach (ConnectionStringSettings connectionStringSettings in ConfigurationManager.ConnectionStrings)
-                    {
-                        if (string.Equals(connectionStringSettings.Name, connectionStringName))
-                        {
-                            connectionString = connectionStringSettings.ConnectionString;
-                        }
-                    }
-                }
-                return connectionString;
-            }
-        }
+        public string ConnectionString { get; set; }
 
         /// <summary>
         /// returns default Connection
@@ -137,9 +118,9 @@ namespace RentPayment.DataProviders
 
         #region getting data
 
-        public DataSet GetListInfo(string stateName, string county, string city, string street, string streetNumber, string zipCode)
+        public DataSet GetPropertyListInfo(string stateName, string county, string city, string street, string streetNumber, string zipCode)
         {
-            SqlCommand myCommand = CreateSQLCommandForSP(StoredProcedures.GetListInfo);
+            SqlCommand myCommand = CreateSQLCommandForSP(Constants.StoredProcedures.GetListInfo);
             myCommand.Parameters.Add(CreateSqlParameter("stateNameValue", SqlDbType.VarChar, stateName));
             myCommand.Parameters.Add(CreateSqlParameter("countyValue", SqlDbType.VarChar, county));
             myCommand.Parameters.Add(CreateSqlParameter("cityValue", SqlDbType.VarChar, city));
@@ -147,7 +128,6 @@ namespace RentPayment.DataProviders
             myCommand.Parameters.Add(CreateSqlParameter("streetNumberValue", SqlDbType.VarChar, streetNumber));
             myCommand.Parameters.Add(CreateSqlParameter("zipCodeValue", SqlDbType.VarChar, zipCode));
             return GetDataSet(myCommand);
-
         }
 
         private DataSet GetDataSet(SqlCommand command)

@@ -1,0 +1,7 @@
+E:\Work\projects\HouseProphecy\HouseProphecyLib\obj\Debug\HouseProphecyLib.csprojResolveAssemblyReference.cache
+E:\Work\projects\HouseProphecy\HouseProphecyLib\obj\Debug\HouseProphecyLib.HPResources.resources
+E:\Work\projects\HouseProphecy\HouseProphecyLib\obj\Debug\HouseProphecyLib.csproj.GenerateResource.Cache
+E:\Work\projects\HouseProphecy\bin\HouseProphecyLib.dll
+E:\Work\projects\HouseProphecy\bin\HouseProphecyLib.pdb
+E:\Work\projects\HouseProphecy\HouseProphecyLib\obj\Debug\HouseProphecyLib.dll
+E:\Work\projects\HouseProphecy\HouseProphecyLib\obj\Debug\HouseProphecyLib.pdb
