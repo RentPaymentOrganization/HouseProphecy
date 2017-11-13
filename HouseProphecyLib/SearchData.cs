@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace HouseProphecy.Components
 {
+    /// <summary>
+    /// Aggregation of data on the parameters on which the rent price of the premises depends on the forecast
+    /// </summary>
     public class SearchData
     {
         public string ZipCode { get; set; }

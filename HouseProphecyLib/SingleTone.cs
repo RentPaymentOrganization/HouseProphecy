@@ -9,7 +9,6 @@
             {
                 if (_instance == null)
                     _instance = new T();
-
                 return _instance;
             }
         }

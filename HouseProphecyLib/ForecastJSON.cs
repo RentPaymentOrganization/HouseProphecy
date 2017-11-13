@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace HouseProphecy
+﻿namespace HouseProphecy
 {
+    /// <summary>
+    /// All fields for forecasting
+    /// </summary>
     public class ForecastJSON
     {
         public string State { get; set; }

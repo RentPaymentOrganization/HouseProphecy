@@ -38,7 +38,7 @@ namespace HouseProphecy.DataProviders
             }
         }
 
-      
+
         #endregion
 
         #region Protected Methods

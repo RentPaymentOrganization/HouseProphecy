@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
-using HouseProphecy;
 using System.Configuration;
 using static WebForecast.Components.Constants;
 using HouseProphecy.Components;
@@ -22,7 +21,7 @@ namespace HouseProphecy
                   
                     if (houseProphecyLib.Json.Action == "getPrice")
                     {
-                        str = houseProphecyLib.prediction();
+                        str = houseProphecyLib.Prediction();
                     }
                     else if (houseProphecyLib.Json.Action == "getInfo")
                     {

@@ -8,6 +8,9 @@ using HouseProphecy.DataProviders;
 
 namespace HouseProphecy
 {
+    /// <summary>
+    /// Getting a forecast based on user data and information from the database
+    /// </summary>
     public class HouseProphecyLib
     {
 
@@ -29,9 +32,14 @@ namespace HouseProphecy
 
         public HouseProphecyLib(ForecastJSON json)
         {
-            this.Json = json;
+            Json = json;
         }
-        public string prediction()
+
+        /// <summary>
+        /// Forecast with aggregation of data
+        /// </summary>
+        /// <returns></returns>
+        public string Prediction()
         {
             Forecast forecast = new Forecast();
             double val = 0;
@@ -76,7 +84,7 @@ namespace HouseProphecy
                                                 str = forecast.Result;
                                                 str = str.Substring(str.LastIndexOf(",") + 1);
                                                 str = str.Substring(0, str.IndexOf("]"));
-                                                if (str != "null")
+                                                if (str != Constants.ForecastFields.Nothing)
                                                 {
                                                     str = str.Remove(0, 1);
                                                     str = str.Remove(str.Length - 1);
@@ -98,13 +106,18 @@ namespace HouseProphecy
                 }
             }
             str = Math.Round(val / count, 2).ToString();
-            exit: if (str == "null")
+            exit: if (str == Constants.ForecastFields.Nothing)
             {
-                str = "Enter ZIP code";
+                str = Constants.ForecastFields.ErrorZipCode;
             }
             return str;
         }
 
+        /// <summary>
+        /// Converting data from datatable to json
+        /// </summary>
+        /// <param name="table">datatable</param>
+        /// <returns>json</returns>
         public string DataTableToJSON(DataTable table)
         {
             List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
@@ -124,18 +137,22 @@ namespace HouseProphecy
             return serializer.Serialize(list);
         }
 
+        /// <summary>
+        /// Data from the database for presentation on the page
+        /// </summary>
+        /// <returns>json</returns>
         public string GetPropertyInfoList()
         {
             string resJSON = string.Empty;
             try
             {
-                DataSet resDataSet = DataProvider.Instance.GetPropertyListInfo(Json.State, Json.County,  Json.City, Json.Street, Json.StreetNumber, Json.ZipCode);
-                if(resDataSet.Tables.Count > 0)
+                DataSet resDataSet = DataProvider.Instance.GetPropertyListInfo(Json.State, Json.County, Json.City, Json.Street, Json.StreetNumber, Json.ZipCode);
+                if (resDataSet.Tables.Count > 0)
                 {
-                    resJSON=DataTableToJSON(resDataSet.Tables[0]);
+                    resJSON = DataTableToJSON(resDataSet.Tables[0]);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 resJSON = ex.Message;
             }
@@ -149,8 +166,12 @@ namespace HouseProphecy
         #endregion
 
 
-            #region private methods
+        #region private methods
 
+        /// <summary>
+        /// Data processing from the user to the structure of the model
+        /// </summary>
+        /// <param name="json">json</param>
         private void FillSearchData(ForecastJSON json)
         {
             searchData.ZipCode = json.ZipCode;
@@ -159,11 +180,11 @@ namespace HouseProphecy
             NumberFormatInfo formatInfo = (NumberFormatInfo)CultureInfo.GetCultureInfo("en-US").NumberFormat.Clone();
             if (json.SquareFrom == null)
             {
-                json.SquareFrom = "100";
+                json.SquareFrom = Constants.ForecastFields.SquareFrom;
             }
             if (json.SquareTo == null)
             {
-                json.SquareTo = "10000";
+                json.SquareTo = Constants.ForecastFields.SquareTo;
             }
             searchData.Square = ((double.Parse(json.SquareFrom, formatInfo) + double.Parse(json.SquareTo, formatInfo)) / 2).ToString();
             searchData.CatsOk = ChoiseRadioButton(json.CatsOk);
@@ -177,171 +198,186 @@ namespace HouseProphecy
             searchData.Parking = Parking(json);
         }
 
+        /// <summary>
+        /// Data aggregation over the LaundrySeparation field
+        /// </summary>
         private List<string> LaundrySeparation(string str)
         {
             List<string> laundrySeparation = new List<string>();
-            if (str == "NoMatter")
+            if (str == Constants.ForecastFields.NoMatter)
             {
-                laundrySeparation.Add("laundry.in.bldg");
-                laundrySeparation.Add("laundry.on.site");
-                laundrySeparation.Add("no.laundry.on.site");
+                laundrySeparation.Add(Constants.ForecastFields.LaundryInBldg);
+                laundrySeparation.Add(Constants.ForecastFields.LaundryOnSite);
+                laundrySeparation.Add(Constants.ForecastFields.NoLaundryOnSite);
             }
-            else if (str == "InBldg")
+            else if (str == Constants.ForecastFields.InBldg)
             {
-                laundrySeparation.Add("laundry.in.bldg");
+                laundrySeparation.Add(Constants.ForecastFields.LaundryInBldg);
             }
-            else if (str == "OnSite")
+            else if (str == Constants.ForecastFields.OnSite)
             {
-                laundrySeparation.Add("laundry.on.site");
+                laundrySeparation.Add(Constants.ForecastFields.LaundryOnSite);
             }
             else
             {
-                laundrySeparation.Add("no.laundry.on.site");
+                laundrySeparation.Add(Constants.ForecastFields.NoLaundryOnSite);
             }
             return laundrySeparation;
         }
 
+        /// <summary>
+        /// Data aggregation over the Laundry field
+        /// </summary>
         private List<string> Laundry(string str)
         {
             List<string> laundry = new List<string>();
-            if (str == "NoMatter")
+            if (str == Constants.ForecastFields.NoMatter)
             {
-                laundry.Add("w.d.in.unit");
-                laundry.Add("w.d.hookups");
+                laundry.Add(Constants.ForecastFields.WDInUnit);
+                laundry.Add(Constants.ForecastFields.WDHookups);
             }
-            else if (str == "InUnit")
+            else if (str == Constants.ForecastFields.InUnit)
             {
-                laundry.Add("w.d.in.unit");
+                laundry.Add(Constants.ForecastFields.WDInUnit);
             }
             else
             {
-                laundry.Add("w.d.hookups");
+                laundry.Add(Constants.ForecastFields.WDHookups);
             }
             return laundry;
         }
 
+        /// <summary>
+        /// Data aggregation over the Parking field
+        /// </summary>
         private List<string> Parking(ForecastJSON json)
         {
             List<string> parking = new List<string>();
             if (json.Carport != null)
             {
-                parking.Add("carport");
+                parking.Add(Constants.ForecastFields.Carport);
             }
             if (json.AttachedGarage != null)
             {
-                parking.Add("attached.garage");
+                parking.Add(Constants.ForecastFields.AttachedGarage);
             }
             if (json.DetachedGarage != null)
             {
-                parking.Add("detached.garage");
+                parking.Add(Constants.ForecastFields.DetachedGarage);
             }
             if (json.OffStreetParking != null)
             {
-                parking.Add("off.street.parking");
+                parking.Add(Constants.ForecastFields.OffStreetParking);
             }
             if (json.StreetParking != null)
             {
-                parking.Add("street.parking");
+                parking.Add(Constants.ForecastFields.StreetParking);
             }
             if (json.ValetParking != null)
             {
-                parking.Add("valet.parking");
+                parking.Add(Constants.ForecastFields.ValetParking);
             }
             if (json.NoParking != null)
             {
-                parking.Add("no.parking");
+                parking.Add(Constants.ForecastFields.NoParking);
             }
             if (parking.Count == 0)
             {
-                parking.Add("carport");
-                parking.Add("attached.garage");
-                parking.Add("detached.garage");
-                parking.Add("off.street.parking");
-                parking.Add("street.parking");
-                parking.Add("valet.parking");
-                parking.Add("no.parking");
+                parking.Add(Constants.ForecastFields.Carport);
+                parking.Add(Constants.ForecastFields.AttachedGarage);
+                parking.Add(Constants.ForecastFields.DetachedGarage);
+                parking.Add(Constants.ForecastFields.OffStreetParking);
+                parking.Add(Constants.ForecastFields.StreetParking);
+                parking.Add(Constants.ForecastFields.ValetParking);
+                parking.Add(Constants.ForecastFields.NoParking);
             }
             return parking;
         }
 
+        /// <summary>
+        /// Data aggregation over the HousingType field
+        /// </summary>
         private List<string> HousingType(ForecastJSON json)
         {
             List<string> housingType = new List<string>();
             if (json.Apartment != null)
             {
-                housingType.Add("apartment");
+                housingType.Add(Constants.ForecastFields.Apartment);
             }
             if (json.Condo != null)
             {
-                housingType.Add("condo");
+                housingType.Add(Constants.ForecastFields.Condo);
             }
             if (json.CottageCabin != null)
             {
-                housingType.Add("cottage.cabin");
+                housingType.Add(Constants.ForecastFields.CottageCabin);
             }
             if (json.Duplex != null)
             {
-                housingType.Add("duplex");
+                housingType.Add(Constants.ForecastFields.Duplex);
             }
             if (json.Flat != null)
             {
-                housingType.Add("flat");
+                housingType.Add(Constants.ForecastFields.Flat);
             }
             if (json.House != null)
             {
-                housingType.Add("house");
+                housingType.Add(Constants.ForecastFields.House);
             }
             if (json.InLaw != null)
             {
-                housingType.Add("in.law");
+                housingType.Add(Constants.ForecastFields.InLaw);
             }
             if (json.Loft != null)
             {
-                housingType.Add("loft");
+                housingType.Add(Constants.ForecastFields.Loft);
             }
             if (json.Townhouse != null)
             {
-                housingType.Add("townhouse");
+                housingType.Add(Constants.ForecastFields.Townhouse);
             }
             if (json.Manufactured != null)
             {
-                housingType.Add("manufactured");
+                housingType.Add(Constants.ForecastFields.Manufactured);
             }
             if (json.AssistedLiving != null)
             {
-                housingType.Add("assisted.living");
+                housingType.Add(Constants.ForecastFields.AssistedLiving);
             }
             if (json.Land != null)
             {
-                housingType.Add("land");
+                housingType.Add(Constants.ForecastFields.Land);
             }
             if (housingType.Count == 0)
             {
-                housingType.Add("apartment");
-                housingType.Add("condo");
-                housingType.Add("cottage.cabin");
-                housingType.Add("duplex");
-                housingType.Add("flat");
-                housingType.Add("house");
-                housingType.Add("in.law");
-                housingType.Add("loft");
-                housingType.Add("townhouse");
-                housingType.Add("manufactured");
-                housingType.Add("assisted.living");
-                housingType.Add("land");
+                housingType.Add(Constants.ForecastFields.Apartment);
+                housingType.Add(Constants.ForecastFields.Condo);
+                housingType.Add(Constants.ForecastFields.CottageCabin);
+                housingType.Add(Constants.ForecastFields.Duplex);
+                housingType.Add(Constants.ForecastFields.Flat);
+                housingType.Add(Constants.ForecastFields.House);
+                housingType.Add(Constants.ForecastFields.InLaw);
+                housingType.Add(Constants.ForecastFields.Loft);
+                housingType.Add(Constants.ForecastFields.Townhouse);
+                housingType.Add(Constants.ForecastFields.Manufactured);
+                housingType.Add(Constants.ForecastFields.AssistedLiving);
+                housingType.Add(Constants.ForecastFields.Land);
             }
             return housingType;
         }
 
+        /// <summary>
+        /// Data aggregation over the ChoiseRadioButton field
+        /// </summary>
         private List<string> ChoiseRadioButton(string str)
         {
             List<string> list = new List<string>();
-            if (str == "NoMatter")
+            if (str == Constants.ForecastFields.NoMatter)
             {
                 list.Add("1");
                 list.Add("0");
             }
-            else if (str == "Yes")
+            else if (str == Constants.ForecastFields.Yes)
             {
                 list.Add("1");
             }

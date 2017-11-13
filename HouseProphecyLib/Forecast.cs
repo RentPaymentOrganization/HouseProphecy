@@ -1,9 +1,9 @@
-﻿using HouseProphecy;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using HouseProphecyLib;
 
 namespace HouseProphecy.Components
 {
@@ -16,6 +16,12 @@ namespace HouseProphecy.Components
     public class Forecast
     {
         public string Result { get; set; }
+
+        /// <summary>
+        /// Forecast of the rental price of the premises
+        /// </summary>
+        /// <param name="searchData">The fields on which the forecast depends</param>
+        /// <returns>The result of the forecast</returns>
         public async Task InvokeRequestResponseService(ModelData searchData)
         {
             using (var client = new HttpClient())
@@ -33,15 +39,15 @@ namespace HouseProphecy.Components
                                                             Constants.ForecastFields.WheelchairAccessible, Constants.ForecastFields.HousingType, Constants.ForecastFields.WD,
                                                             Constants.ForecastFields.Laundry, Constants.ForecastFields.Parking},
                                 Values = new string[,] { { searchData.ZipCode, "0", searchData.BedRooms, searchData.BathRooms,
-                                        searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
-                                        searchData.WheelchairAccessible, searchData.HousingType, searchData.Laundry, searchData.LaundrySeparation, searchData.Parking}, }
+                                                           searchData.Square, searchData.CatsOk, searchData.DogsOk, searchData.Furnished, searchData.NoSmoking,
+                                                           searchData.WheelchairAccessible, searchData.HousingType, searchData.Laundry, searchData.LaundrySeparation, searchData.Parking}, }
                             }
                         },
                     },
                     GlobalParameters = new Dictionary<string, string>()
                     {
                     }
-                };                
+                };
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HPResources.AzureSearchApiKey);
                 client.BaseAddress = new Uri(HPResources.Uri);
                 //Assembly System.Net.Http.Formatting for PostAsJsonAsync
