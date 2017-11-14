@@ -16,7 +16,7 @@ namespace HouseProphecy
 
         #region public variables
 
-        public ForecastJSON Json;
+        public ForecastObject Json;
         //public string ConnectionString { get; set; } = string.Empty;
 
         #endregion
@@ -30,7 +30,7 @@ namespace HouseProphecy
 
         #region public methods
 
-        public HouseProphecyLib(ForecastJSON json)
+        public HouseProphecyLib(ForecastObject json)
         {
             Json = json;
         }
@@ -172,7 +172,7 @@ namespace HouseProphecy
         /// Data processing from the user to the structure of the model
         /// </summary>
         /// <param name="json">json</param>
-        private void FillSearchData(ForecastJSON json)
+        private void FillSearchData(ForecastObject json)
         {
             searchData.ZipCode = json.ZipCode;
             searchData.BedRooms = json.BedRooms;
@@ -250,7 +250,7 @@ namespace HouseProphecy
         /// <summary>
         /// Data aggregation over the Parking field
         /// </summary>
-        private List<string> Parking(ForecastJSON json)
+        private List<string> Parking(ForecastObject json)
         {
             List<string> parking = new List<string>();
             if (json.Carport != null)
@@ -297,7 +297,7 @@ namespace HouseProphecy
         /// <summary>
         /// Data aggregation over the HousingType field
         /// </summary>
-        private List<string> HousingType(ForecastJSON json)
+        private List<string> HousingType(ForecastObject json)
         {
             List<string> housingType = new List<string>();
             if (json.Apartment != null)

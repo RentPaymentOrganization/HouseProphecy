@@ -52,7 +52,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="Forecast.cs" />
-    <Compile Include="ForecastJSON.cs" />
+    <Compile Include="ForecastObject.cs" />
     <Compile Include="HouseProphecyLib.cs" />
     <Compile Include="HPResources.Designer.cs">
       <DependentUpon>HPResources.resx</DependentUpon>

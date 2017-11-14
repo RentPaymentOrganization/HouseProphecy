@@ -11,7 +11,7 @@ namespace HouseProphecy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastJSON>(Request.Form[0]));
+            HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastObject>(Request.Form[0]));
             if (!IsPostBack)
             {
                 if (IsAjaxRequest(Request))

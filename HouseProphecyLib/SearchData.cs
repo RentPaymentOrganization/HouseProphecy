@@ -7,10 +7,10 @@ namespace HouseProphecy.Components
     /// </summary>
     public class SearchData
     {
-        public string ZipCode { get; set; }
-        public string BedRooms { get; set; }
-        public string BathRooms { get; set; }
-        public string Square { get; set; }
+        public string ZipCode { get; set; } = string.Empty;
+        public string BedRooms { get; set; } = string.Empty;
+        public string BathRooms { get; set; } = string.Empty;
+        public string Square { get; set; } = string.Empty;
         public List<string> CatsOk { get; set; } = new List<string>();
         public List<string> DogsOk { get; set; } = new List<string>();
         public List<string> Furnished { get; set; } = new List<string>();
