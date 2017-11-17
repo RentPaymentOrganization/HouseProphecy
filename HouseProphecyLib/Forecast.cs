@@ -43,9 +43,6 @@ namespace HouseProphecy.Components
                                                            searchData.WheelchairAccessible, searchData.HousingType, searchData.Laundry, searchData.LaundrySeparation, searchData.Parking}, }
                             }
                         },
-                    },
-                    GlobalParameters = new Dictionary<string, string>()
-                    {
                     }
                 };
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HPResources.AzureSearchApiKey);

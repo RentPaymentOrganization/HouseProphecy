@@ -11,14 +11,14 @@ namespace HouseProphecy.Components
         public string BedRooms { get; set; } = string.Empty;
         public string BathRooms { get; set; } = string.Empty;
         public string Square { get; set; } = string.Empty;
-        public List<string> CatsOk { get; set; } = new List<string>();
-        public List<string> DogsOk { get; set; } = new List<string>();
-        public List<string> Furnished { get; set; } = new List<string>();
-        public List<string> NoSmoking { get; set; } = new List<string>();
-        public List<string> WheelchairAccessible { get; set; } = new List<string>();
-        public List<string> HousingType { get; set; } = new List<string>();
-        public List<string> Laundry { get; set; } = new List<string>();
-        public List<string> LaundrySeparation { get; set; } = new List<string>();
-        public List<string> Parking { get; set; } = new List<string>();
+        public List<string> CatsOk { get; set; }
+        public List<string> DogsOk { get; set; }
+        public List<string> Furnished { get; set; }
+        public List<string> NoSmoking { get; set; } 
+        public List<string> WheelchairAccessible { get; set; }
+        public List<string> HousingType { get; set; } 
+        public List<string> Laundry { get; set; }
+        public List<string> LaundrySeparation { get; set; }
+        public List<string> Parking { get; set; }
     }
 }

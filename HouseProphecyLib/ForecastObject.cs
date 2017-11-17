@@ -1,4 +1,4 @@
-﻿namespace HouseProphecy
+﻿namespace HouseProphecy.Components
 {
     /// <summary>
     /// All fields for forecasting

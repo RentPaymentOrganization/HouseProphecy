@@ -257,27 +257,27 @@ namespace HouseProphecy
             {
                 parking.Add(Constants.ForecastFields.Carport);
             }
-            if (json.AttachedGarage != null)
+            if (json.AttachedGarage != "")
             {
                 parking.Add(Constants.ForecastFields.AttachedGarage);
             }
-            if (json.DetachedGarage != null)
+            if (json.DetachedGarage != "")
             {
                 parking.Add(Constants.ForecastFields.DetachedGarage);
             }
-            if (json.OffStreetParking != null)
+            if (json.OffStreetParking != "")
             {
                 parking.Add(Constants.ForecastFields.OffStreetParking);
             }
-            if (json.StreetParking != null)
+            if (json.StreetParking != "")
             {
                 parking.Add(Constants.ForecastFields.StreetParking);
             }
-            if (json.ValetParking != null)
+            if (json.ValetParking != "")
             {
                 parking.Add(Constants.ForecastFields.ValetParking);
             }
-            if (json.NoParking != null)
+            if (json.NoParking != "")
             {
                 parking.Add(Constants.ForecastFields.NoParking);
             }
@@ -300,51 +300,51 @@ namespace HouseProphecy
         private List<string> HousingType(ForecastObject json)
         {
             List<string> housingType = new List<string>();
-            if (json.Apartment != null)
+            if (json.Apartment != "")
             {
                 housingType.Add(Constants.ForecastFields.Apartment);
             }
-            if (json.Condo != null)
+            if (json.Condo != "")
             {
                 housingType.Add(Constants.ForecastFields.Condo);
             }
-            if (json.CottageCabin != null)
+            if (json.CottageCabin != "")
             {
                 housingType.Add(Constants.ForecastFields.CottageCabin);
             }
-            if (json.Duplex != null)
+            if (json.Duplex != "")
             {
                 housingType.Add(Constants.ForecastFields.Duplex);
             }
-            if (json.Flat != null)
+            if (json.Flat != "")
             {
                 housingType.Add(Constants.ForecastFields.Flat);
             }
-            if (json.House != null)
+            if (json.House != "")
             {
                 housingType.Add(Constants.ForecastFields.House);
             }
-            if (json.InLaw != null)
+            if (json.InLaw != "")
             {
                 housingType.Add(Constants.ForecastFields.InLaw);
             }
-            if (json.Loft != null)
+            if (json.Loft != "")
             {
                 housingType.Add(Constants.ForecastFields.Loft);
             }
-            if (json.Townhouse != null)
+            if (json.Townhouse != "")
             {
                 housingType.Add(Constants.ForecastFields.Townhouse);
             }
-            if (json.Manufactured != null)
+            if (json.Manufactured != "")
             {
                 housingType.Add(Constants.ForecastFields.Manufactured);
             }
-            if (json.AssistedLiving != null)
+            if (json.AssistedLiving != "")
             {
                 housingType.Add(Constants.ForecastFields.AssistedLiving);
             }
-            if (json.Land != null)
+            if (json.Land != "")
             {
                 housingType.Add(Constants.ForecastFields.Land);
             }
