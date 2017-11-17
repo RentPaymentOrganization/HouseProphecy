@@ -8,6 +8,12 @@
             public static string GetListInfo = "P_GetListInfo";
         }
 
+        public static class Action
+        {
+            public static string GetPrice = "getPrice";
+            public static string GetInfo = "getInfo";
+        }
+        
         public static class ForecastFields
         {
             public static string ZipCode = "zipCode";

@@ -19,11 +19,11 @@ namespace HouseProphecy
                     //houseProphecyLib.ConnectionString = DataProvider.Instance.ConnectionString;
                     string str = "";
                   
-                    if (houseProphecyLib.Json.Action == "getPrice")
+                    if (houseProphecyLib.Json.Action == Constants.Action.GetPrice)
                     {
                         str = houseProphecyLib.Prediction();
                     }
-                    else if (houseProphecyLib.Json.Action == "getInfo")
+                    else if (houseProphecyLib.Json.Action == Constants.Action.GetInfo)
                     {
                         houseProphecyLib.SetConnectionString(ConnectionString());
                         str = houseProphecyLib.GetPropertyInfoList();
