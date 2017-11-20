@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HouseProphecyLib
+namespace HouseProphecy
 {
     using System;
 
@@ -45,7 +45,7 @@ namespace HouseProphecyLib
             {
                 if (object.ReferenceEquals(resourceMan, null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HouseProphecyLib.HPResources", typeof(HPResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HouseProphecy.HPResources", typeof(HPResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
