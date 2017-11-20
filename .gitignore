@@ -39,6 +39,17 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+HouseProphecyLib/[Dd]ebug/
+HouseProphecyLib/[Dd]ebugPublic/
+HouseProphecyLib/[Rr]elease/
+HouseProphecyLib/[Rr]eleases/
+HouseProphecyLib/[Xx]64/
+HouseProphecyLib/[Xx]86/
+HouseProphecyLib/[Bb]uild/
+HouseProphecyLib/bld/
+HouseProphecyLib/[Bb]in/
+HouseProphecyLib/[Oo]bj/
+
 # Visual Studio 2015 cache/options directory
 .vs/
 # Uncomment if you have tasks that create the project's static files in wwwroot
