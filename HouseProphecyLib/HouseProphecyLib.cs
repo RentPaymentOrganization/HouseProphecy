@@ -38,7 +38,7 @@ namespace HouseProphecy
         /// <summary>
         /// Forecast with aggregation of data
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Price result</returns>
         public string Prediction()
         {
             Forecast forecast = new Forecast();
