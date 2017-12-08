@@ -4,31 +4,40 @@ using System.Web.UI;
 using System.Configuration;
 using static WebForecast.Components.Constants;
 using HouseProphecy.Components;
+using static HouseProphecy.Components.Constants;
 
 namespace HouseProphecy
 {
     public partial class HouseProphecy : Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastObject>(Request.Form[0]));
+        {           
             if (!IsPostBack)
             {
+                string result = string.Empty;
                 if (IsAjaxRequest(Request))
                 {
-                    //houseProphecyLib.ConnectionString = DataProvider.Instance.ConnectionString;
-                    string str = "";
-                  
-                    if (houseProphecyLib.Json.Action == Constants.Action.GetPrice)
+                    try
                     {
-                        str = houseProphecyLib.Prediction();
+                        HouseProphecyLib houseProphecyLib = new HouseProphecyLib(JSObjectOperation.Instance.DeserializeJSObject<ForecastObject>(Request.Form[0]));                      
+                        //try to predict price
+                        if(houseProphecyLib.Json.Action == HPModelConstants.GetPrice)
+                        {
+                            result = houseProphecyLib.PredictPrice().ToString();
+                        }
+                        //get info from DataBase
+                        else if(houseProphecyLib.Json.Action == HPModelConstants.GetInfo)
+                        {
+                            houseProphecyLib.SetConnectionString(ConnectionString());
+                            result = houseProphecyLib.GetPropertyInfoList();
+                        }
                     }
-                    else if (houseProphecyLib.Json.Action == Constants.Action.GetInfo)
+                    catch(Exception ex)
                     {
-                        houseProphecyLib.SetConnectionString(ConnectionString());
-                        str = houseProphecyLib.GetPropertyInfoList();
+                        Response.Write(ex.Message);
+                        Response.End();
                     }
-                    Response.Write(str);
+                    Response.Write(result);
                     Response.End();
                 }
             }
