@@ -43,6 +43,7 @@ namespace HouseProphecy
             }
         }
 
+        //checks if the respobse is async
         public bool IsAjaxRequest(HttpRequest request)
         {
             if (request == null)
